@@ -1,0 +1,245 @@
+%-------------------------
+% Resume in Latex
+% Author : Ritesh Bachhar
+% License : University of Rhode Island
+%------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\usepackage[bottom=0.8in,top=1.1in,left=0.95in,right=0.8in]{geometry}
+%\addtolength{\oddsidemargin}{-0.25in}
+%\addtolength{\evensidemargin}{-0.25in}
+%\addtolength{\textwidth}{0.60in}
+%\addtolength{\topmargin}{-.3in}
+%\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{ #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large Ritesh Bachhar}\\
+  Graduate Student, University of Rhode Island\\
+  Email :  riteshbachhar@uri.edu, riteshbachhar@gmail.com\\
+  Website: \href{www.riteshbachhar.com}{riteshbachhar.com}\\
+\end{tabular*}
+
+%----------- INTRO--------------------%
+\section{Research Interest}
+General relativity (GR), Surrogate models of gravitational waves, Gravitational wave modeling and Inference, Black hole merger phenomenology
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Rhode Island, Department of Physics}{RI, USA}
+      {Ph.D. Candidate (third-year); GPA: 3.99/4.00}{September, 2021 - Present}
+    \resumeSubheading
+      {Indian Institute of Technology Bombay}{Mumbai, India}
+      {Master's in Physics;  CPI: 9.17/10}{July 2018 - June, 2020}
+    \resumeSubheading
+      {Scottish Church College}{Kolkata, India}
+      {B.Sc. Physics; University of Calcutta; 61.5\%}{July 2014 - April 2017}
+  \resumeSubHeadingListEnd
+
+\vspace{-0.2cm}
+
+%-----------PUBLICATIONS-----------------
+\section{Publications}
+    \resumeSubHeadingListStart
+
+    \resumeItem{\normalfont A surrogate model for spinning comparable to intermediate mass-ratio binary black
+hole gravitational wave signals}\\
+    {\textbf{Ritesh Bachhar}, Katie Rink, Tousif Islam \textit{et al.}}\\
+    {In preparation}
+    
+    \resumeItem{\normalfont Binary Black Hole Coalescence Phenomenology from Numerical Relativity} \\
+    {Richard Price, \textbf{Ritesh Bachhar}, Gaurav Khanna\\ 
+    \href{https://arxiv.org/abs/2312.15885}{arXiv:2312.15885}; December 2023}
+    
+    \resumeItem{\normalfont Angular Momentum for Black Hole Binaries in Numerical Relativity}\\
+    {\textbf{Ritesh Bachhar}, Richard Price, Gaurav Khanna\\ 
+    \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.108.064019}{PRD 108,064019}; September 2023}
+    
+    \resumeItem{\normalfont Timing and spectral studies of Cen X-3 in multiple luminosity states using AstroSat}\\
+    {\textbf{Ritesh Bachhar}, Gayathri Raman, Varun Bhalerao \textit{et al.}\\ 
+    \href{https://academic.oup.com/mnras/article/517/3/4138/6760011}{MNRAS, 517, 4138}; October 2022}
+    
+    \resumeSubHeadingListEnd  
+  
+ %-----------PROJECTS-----------------
+\section{Research Experience}
+  \textbf{Current Projects}
+  \resumeSubHeadingListStart
+  \resumeItem{Surrogate model for gravitational waveforms from black hole coalescences\\
+  \normalfont Mentor: Dr. Gaurav Khanna (URI) and Dr. Scott Field (UmassD)\\
+  Utilizing methodologies analogous to machine learning, I focus on developing reduced-order surrogate models for gravitational waves from binary black holes. These innovative models are not only rapid in computation but also play a pivotal role in enhancing the efficiency of future gravitational wave detections. Their fast evaluation capability significantly contributes to advancing our search and understanding of gravitational waves.\\
+  \normalfont \vspace{-0.4cm}\null\hfill \textit{September 2021 - Present}}
+
+  \resumeItem{Black hole merger phenomenology}\\
+  {Mentor: Dr. Richard Price (MIT) and Dr. Gaurav Khanna (URI) \\  
+  %Examining the process of coalescence of two black holes and addressing various physical process. We use numerical relativity data as well other approximate methods of studying BH merger to paint a coherent picture of the physical process.  \\
+  Our research delves into the intricate process of black hole coalescence, tackling various physical phenomena involved. We employ numerical relativity data and integrate other approximate method to study black hole mergers. This multifaceted approach allow us to construct a comprehensive understanding of the underlying physical process governing these cosmic events.\\
+  \normalfont \vspace{-0.4cm}\null\hfill \textit{October 2022 - Present}}
+
+  \resumeItem{Gravitational Waveform Uncertainty: Its Influence on Theoretical and Observational Inferences}\\
+  {Mentor: Dr. Michael Pürrer (URI)\\
+  %Exploring the effect of waveform uncertainty in parameter estimation of gravitational wave sources.\\
+  Inaccuracies in the modeling of gravitational waves (GW) can introduce systematic errors in the Bayesian parameter estimation for compact binary coalescences, especially with the advent of next-generation GW detectors. To address this, we utilize a variety of advanced techniques aimed at reducing waveform uncertainties during the inference process. These methods are crucial for ensuring more accurate and reliable gravitational wave inference analysis. \\
+  \normalfont \vspace{-0.4cm}\null\hfill \textit{October 2022 - Present}}
+  
+  \resumeSubHeadingListEnd
+  
+  \textbf{Past Projects}
+  \resumeSubHeadingListStart
+  
+  \resumeItem{Pulse phase resolved analysis of a High mass X-ray Binary Cen X-3} \\
+  {Mentor: Prof. Varun Bhalerao (IIT Bombay) and Dr. Gayathri Raman (Penn State)\\ I analysed Indian satellite Astrosat's data and performed high precision timing and spectral analysis of the source.\\ \vspace{-0.4cm}\null\hfill \textit{August 2019 - April 2021}}
+  \resumeSubHeadingListEnd
+
+
+%----------CONFERENCE TALKS-------------
+\section{CONFERENCE TALKS}
+    \resumeSubHeadingListStart
+
+    \resumeItem{Gravitational wave inference with marginalization over waveform uncertainty}\\
+    {APS April Meeting, 2024}
+
+    \resumeItem{Building surrogate model of spinning binary black hole coalescence using perturbation theory waveforms}\\
+    {23rd Eastern Gravity Meeting, 2023}
+    
+    \resumeItem{Surrogate model for gravitational waveforms from spinning binary black hole coalescence using perturbation theory}\\
+    {APS April Meeting, 2023}
+    
+    \resumeSubHeadingListEnd
+%----------Achievements----------------
+\section{Academic Achievements}
+  \resumeSubHeadingListStart
+  
+  \resumeItem{}{Awarded \textbf{Bhavesh Gandhi Memorial Prize}(2019-20), IIT Bombay, for best M.Sc. thesis.}
+
+   \resumeItem{}{Qualified \textbf{CSIR NET} June 2019 with \textbf{AIR 66} and eligible for Junior Research Fellowship.}
+   
+   \resumeItem{}{Achieved \textbf{All India Rank 61} in JEST 2018 Physics for Integrated Ph.D.}
+
+  \resumeSubHeadingListEnd
+  
+%-----------EXPERIENCE-----------------
+\section{Teaching Experience}
+    \resumeSubHeadingListStart
+
+    \resumeItem{\normalfont TA for PHY204, Elementary Physics II (Fall 2023), with Dr. Rob Coyne\\
+    Assisted students with their homework assignments and prepared them for exams by providing guidance and support to enhance there  of the subject matter.}
+    
+    \resumeItem{\normalfont TA for AST 108 and AST118H (Spring 2022) with Prof. Douglas Gobeille.}
+    
+    \resumeItem{\normalfont TA for AST108 and AST118 (Fall 2021) with Prof. Douglas Gobeille.\\Helped students to solve their doubts, conducted multiple observations (daytime and night-time).}
+    
+    \resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------
+\section{Programming Skills}
+ \resumeSubHeadingListStart
+ 
+ \resumeItem{Languages :}{Python(NumPy, SciPy, SymPy, AstroPy and Pandas), C, Fortran}
+ 
+ \resumeItem{Statistical Packages :}{emcee, xspec\_emcee}
+ 
+ \resumeItem{Software :}{Matlab, Mathematica, HEASOFT, XSPEC, and LaTeX}
+
+ \resumeItem{Microcontroller :}{Arduino} 
+ \resumeSubHeadingListEnd
+
+%---------------------------------------
+\section{Workshop and Online Course}
+ \resumeSubHeadingListStart
+    \resumeItem{\normalfont Attended Primordial Black Holes confront GW data workshop at Sapienza University of Rome (Feb 8-12, 2021)(virtual)}
+    
+    \resumeItem{Machine Learning, }{successfully completed the machine learning course taught by \textbf{Andrew Ng}}
+\resumeSubHeadingListEnd
+
+
+%-------Position of responsibility------------------  
+\section{Position of Responsibility}
+  \textbf{Student Companion ISCP, IIT Bombay}\\ 
+  Mentored 12 students from M.Sc. physics and assisted them on various academic and non-academic fronts.
+  \resumeSubHeadingListStart
+  \resumeSubItem{\normalfont 147 student companion were selected out of 256 applicant based on SOP, interview and peer review.}
+  
+  \resumeSubItem{\normalfont Helped in organizing institute orientation program for 1867 students and parent orientation for 600 parents.\\ \vspace{-0.5cm}\null\hfill \textit{June 2019 - June 2020}}
+  
+ \resumeSubHeadingListEnd
+
+
+%\section{Hobbies}
+ % \resumeSubHeadingListStart
+
+%   \resumeItem{\normalfont Computer Coding: Apart from physics, computer coding and problem solving is another thing that I like to do most.}
+   
+ %  \resumeItem{\normalfont Playing guitar.}
+   
+  % \resumeItem{\normalfont Like to play chess and watch anime.} 
+   
+
+  % \resumeSubHeadingListEnd
+
+
+\end{document}
