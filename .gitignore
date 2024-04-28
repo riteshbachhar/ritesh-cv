@@ -1,0 +1,10 @@
+*.aux
+*.log
+*.out
+*Notes.bib
+*.rel
+*.blg
+*.gz
+.DS_Store
+
+RiteshBachhar_*.pdf
