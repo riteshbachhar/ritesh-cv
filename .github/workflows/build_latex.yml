@@ -1,23 +1,31 @@
-name: Compile LaTeX Document
-on: [push]
+name: Build LaTeX Document
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up TeX Live
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: LeoCStein.tex
+      - name: Install TeX Live
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
 
-    - name: Compile LaTeX Document
-      run: pdflatex LeoCStein.tex
+      - name: Compile LaTeX document
+        run: pdflatex main.tex
 
-    - name: Upload PDF
-      uses: actions/upload-artifact@v2
-      with:
-        name: compiled-pdf
-        path: RiteshBachhar_CV.pdf
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: Compiled-PDF
+          path: main.pdf
