@@ -11,14 +11,13 @@ jobs:
     - name: Set up TeX Live
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: ritesh_cv.tex
+        root_file: LeoCStein.tex
 
     - name: Compile LaTeX Document
-      run: pdflatex ritesh_cv.tex
+      run: pdflatex LeoCStein.tex
 
     - name: Upload PDF
       uses: actions/upload-artifact@v2
       with:
         name: compiled-pdf
         path: RiteshBachhar_CV.pdf
-
