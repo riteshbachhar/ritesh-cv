@@ -1,256 +1,392 @@
-%-------------------------
-% Resume in Latex
-% Author : Ritesh Bachhar
-% License : University of Rhode Island
-%------------------------
+\documentclass[10pt, letterpaper]{article}
 
-\documentclass[a4paper,11pt]{article}
+% --------- Packages --------
+\usepackage[
+    ignoreheadfoot,                       % set margins without considering header and footer
+    top=2 cm,                             % seperation between body and page edge from the top
+    bottom=2 cm,                          % seperation between body and page edge from the bottom
+    left=2 cm,                            % seperation between body and page edge from the left
+    right=2 cm,                           % seperation between body and page edge from the right
+    footskip=1.0 cm,                      % seperation between body and footer
+    % showframe                           % Uncomment for debugging page geometry 
+]{geometry}                               % for adjusting page geometry
 
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-%\usepackage[margin=1in]{geomery}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[pdftex]{hyperref}
-\usepackage{fancyhdr}
-\usepackage{ragged2e}
+\usepackage[explicit]{titlesec}                  % Customizing section titles
+\usepackage{tabularx}                            % Create tables with fixed width columns
+\usepackage{array}                               % Required by tabularx
+\usepackage[dvipsnames]{xcolor}                  % For defining and using color
+\usepackage{enumitem}                            % Customize lists
+\usepackage{fontawesome5}                        % Use icons
+\usepackage{academicons}                         % Academic icons
+\usepackage{amsmath}                             % Math support
+\usepackage[
+    pdftitle={Ritesh Bachhar's CV},
+    pdfauthor={Ritesh Bachhar},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor                       % Hyperlink color set to primary color
+]{hyperref}                                     % Links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic}                   % Floating text on the page
+\usepackage{calc}                               % For calculating lengths
+\usepackage{bookmark}                           % Bookmarks in the PDF
+\usepackage{lastpage}                           % Get the total number of pages
+\usepackage{changepage}                         % One column entries (adjustwidth environment)
+\usepackage{paracol}                            % Two and Three column entries
+\usepackage{ifthen}                             % Conditional statements
+\usepackage{needspace}                          % Avoid page break after section titles
+\usepackage{iftex}                              % Check for pdflatex, xetex or luatex
 
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+% -------- Primary Color Definition --------
+\definecolor{primaryColor}{RGB}{0, 79, 144} % Define the primary color for consistent styling
 
-% Adjust margins
-\usepackage[bottom=0.8in,top=1.1in,left=0.95in,right=0.8in]{geometry}
-%\addtolength{\oddsidemargin}{-0.25in}
-%\addtolength{\evensidemargin}{-0.25in}
-%\addtolength{\textwidth}{0.60in}
-%\addtolength{\topmargin}{-.3in}
-%\addtolength{\textheight}{1.0in}
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
 
-\urlstyle{same}
+\usepackage[default, type1]{sourcesanspro} 
 
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small John Doe - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
 
-% Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+    % avoid page braking right after the section title
+    \needspace{4\baselineskip}
+    % make the font size of the section title large and color it with the primary color
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+    % from the end of the title to the end of the body
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
 
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{ #2 \vspace{-2pt}}
-  }
-}
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
 
-\renewcommand{\labelitemii}{$\circ$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
 
-%-------------------------------------------
-%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
 
 
 \begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
 
-%----------HEADING-----------------
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\Large Ritesh Bachhar}\\
-  Graduate Student, University of Rhode Island\\
-  Email :  riteshbachhar@uri.edu, riteshbachhar@gmail.com\\
-  Website: \href{www.riteshbachhar.com}{www.riteshbachhar.com}\\
-\end{tabular*}
+    \placelastupdatedtext
+    \begin{header}
+        \fontsize{30 pt}{30 pt}
+        \textbf{John Doe}
 
-%----------- INTRO--------------------%
-\section{Research Interest}
-General relativity, Surrogate models of gravitational waves, Gravitational wave modeling and Inference, Black hole merger phenomenology
+        \vspace{0.3 cm}
+
+        \normalsize
+        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Your Location}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:youremail@yourdomain.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}youremail@yourdomain.com}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+90-541-999-99-99}{{\footnotesize\faPhone*}\hspace*{0.13cm}0541 999 99 99}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://yourwebsite.com/}{{\footnotesize\faLink}\hspace*{0.13cm}yourwebsite.com}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/yourusername}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}yourusername}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/yourusername}{{\footnotesize\faGithub}\hspace*{0.13cm}yourusername}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
 
 
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {University of Rhode Island, Department of Physics}{RI, USA}
-      {Ph.D. Candidate (third-year); GPA: 3.99/4.00}{September, 2021 - Present}
-    \resumeSubheading
-      {Indian Institute of Technology Bombay}{Mumbai, India}
-      {Master's in Physics;  CPI: 9.17/10}{July 2018 - June, 2020}
-    \resumeSubheading
-      {Scottish Church College}{Kolkata, India}
-      {B.Sc. Physics; University of Calcutta; 61.5\%}{July 2014 - April 2017}
-  \resumeSubHeadingListEnd
+    \section{Welcome to RenderCV!}
 
-\vspace{-0.2cm}
 
-%-----------PUBLICATIONS-----------------
-\section{Publications}
-    \resumeSubHeadingListStart
 
-    \resumeItem{\normalfont A surrogate model for spinning comparable to intermediate mass-ratio binary black
-hole gravitational wave signals}\\
-    {\textbf{Ritesh Bachhar}, Katie Rink, Tousif Islam \textit{et al.}}\\
-    {In preparation}
+        
+        \begin{onecolentry}
+            \href{https://rendercv.com}{RenderCV} is a LaTeX-based CV/resume version-control and maintenance app. It allows you to create a high-quality CV or resume as a PDF file from a YAML file, with \textbf{Markdown syntax support} and \textbf{complete control over the LaTeX code}.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
+        \end{onecolentry}
+
+
     
-    \resumeItem{\normalfont Binary Black Hole Coalescence Phenomenology from Numerical Relativity} \\
-    {Richard Price, \textbf{Ritesh Bachhar}, Gaurav Khanna\\ 
-    \href{https://arxiv.org/abs/2312.15885}{arXiv:2312.15885}; December 2023}
+    \section{Quick Guide}
+
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+
+
+        \item Each section title is arbitrary and each section contains a list of entries.
+
+        \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
+
+        \item Select a section title, pick an entry type, and start writing your section!
+
+        \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
+
+
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+    \section{Education}
+
+
+
+        
+        \begin{threecolentry}{\textbf{BS}}{
+            Sept 2000 – May 2005
+        }
+            \textbf{University of Pennsylvania}, Computer Science
+            \begin{highlights}
+                \item GPA: 3.9/4.0 (\href{https://example.com}{a link to somewhere})
+                \item \textbf{Coursework:} Computer Architecture, Comparison of Learning Algorithms, Computational Theory
+            \end{highlights}
+        \end{threecolentry}
+
+
     
-    \resumeItem{\normalfont Angular Momentum for Black Hole Binaries in Numerical Relativity}\\
-    {\textbf{Ritesh Bachhar}, Richard Price, Gaurav Khanna\\ 
-    \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.108.064019}{PRD 108,064019}; September 2023}
+    \section{Experience}
+
+
+
+        
+        \begin{twocolentry}{
+            Cupertino, CA
+
+        June 2005 – Aug 2007
+        }
+            \textbf{Apple}, Software Engineer
+            \begin{highlights}
+                \item Reduced time to render user buddy lists by 75\% by implementing a prediction algorithm
+                \item Integrated iChat with Spotlight Search by creating a tool to extract metadata from saved chat transcripts and provide metadata to a system-wide search database
+                \item Redesigned chat file format and implemented backward compatibility for search
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Redmond, WA
+
+        June 2003 – Aug 2003
+        }
+            \textbf{Microsoft}, Software Engineer Intern
+            \begin{highlights}
+                \item Designed a UI for the VS open file switcher (Ctrl-Tab) and extended it to tool windows
+                \item Created a service to provide gradient across VS and VS add-ins, optimizing its performance via caching
+                \item Built an app to compute the similarity of all methods in a codebase, reducing the time from $\mathcal{O}(n^2)$ to $\mathcal{O}(n \log n)$
+                \item Created a test case generation tool that creates random XML docs from XML Schema
+                \item Automated the extraction and processing of large datasets from legacy systems using SQL and Perl scripts
+            \end{highlights}
+        \end{twocolentry}
+
+
+
     
-    \resumeItem{\normalfont Timing and spectral studies of Cen X-3 in multiple luminosity states using AstroSat}\\
-    {\textbf{Ritesh Bachhar}, Gayathri Raman, Varun Bhalerao \textit{et al.}\\ 
-    \href{https://academic.oup.com/mnras/article/517/3/4138/6760011}{MNRAS, 517, 4138}; October 2022}
+    \section{Publications}
+
+
+
+        
+        \begin{samepage}
+            \begin{twocolentry}{
+                Jan 2004
+            }
+                \textbf{3D Finite Element Analysis of No-Insulation Coils}
+
+                \vspace{0.10 cm}
+
+                \mbox{Frodo Baggins}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Samwise Gamgee}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1109/TASC.2023.3340648}{10.1109/TASC.2023.3340648}
+            \end{twocolentry}
+        \end{samepage}
+
+
     
-    \resumeSubHeadingListEnd  
-  
- %-----------PROJECTS-----------------
-\section{Research Experience}
-  \textbf{Current Projects}
-  \resumeSubHeadingListStart
-  \resumeItem{Surrogate model for gravitational waveforms from black hole coalescences\\
-  \normalfont Mentor: Dr. Gaurav Khanna (URI) and Dr. Scott Field (UmassD)\\
-  Utilizing methodologies analogous to machine learning, I focus on developing reduced-order surrogate models for gravitational 
-  waves from binary black holes. These innovative models are not only rapid in computation but also play a pivotal role in enhancing 
-  the efficiency of future gravitational wave detections. Their fast evaluation capability significantly contributes to advancing our 
-  search and understanding of gravitational waves.\\
-  \normalfont \vspace{-0.4cm}\null\hfill \textit{September 2021 - Present}}
-
-  \resumeItem{Black hole merger phenomenology}\\
-  {Mentor: Dr. Richard Price (MIT) and Dr. Gaurav Khanna (URI) \\  
-  %Examining the process of coalescence of two black holes and addressing various physical process. We use numerical relativity data 
-  %as well other approximate methods of studying BH merger to paint a coherent picture of the physical process.  \\
-  Our research delves into the intricate process of black hole coalescence, tackling various physical phenomena involved. We employ 
-  numerical relativity data and integrate other approximate method to study black hole mergers. This multifaceted approach allow us 
-  to construct a comprehensive understanding of the underlying physical process governing these cosmic events.\\
-  \normalfont \vspace{-0.4cm}\null\hfill \textit{October 2022 - Present}}
-
-  \resumeItem{Gravitational Waveform Uncertainty: Its Influence on Theoretical and Observational Inferences}\\
-  {Mentor: Dr. Michael Pürrer (URI)\\
-  %Exploring the effect of waveform uncertainty in parameter estimation of gravitational wave sources.\\
-  Inaccuracies in the modeling of gravitational waves (GW) can introduce systematic errors in the Bayesian parameter estimation 
-  for compact binary coalescences, especially with the advent of next-generation GW detectors. To address this, we utilize 
-  a variety of advanced techniques aimed at reducing waveform uncertainties during the inference process. These methods are crucial 
-  for ensuring more accurate and reliable gravitational wave inference analysis. \\
-  \normalfont \vspace{-0.4cm}\null\hfill \textit{October 2022 - Present}}
-  
-  \resumeSubHeadingListEnd
-  
-  \textbf{Past Projects}
-  \resumeSubHeadingListStart
-  
-  \resumeItem{Pulse phase resolved analysis of a High mass X-ray Binary Cen X-3} \\
-  {Mentor: Prof. Varun Bhalerao (IIT Bombay) and Dr. Gayathri Raman (Penn State)\\ I analysed Indian satellite Astrosat's data and 
-  performed high precision timing and spectral analysis of the source.\\ \vspace{-0.4cm}\null\hfill \textit{August 2019 - April 2021}}
-  \resumeSubHeadingListEnd
+    \section{Projects}
 
 
-%----------CONFERENCE TALKS-------------
-\section{CONFERENCE TALKS}
-    \resumeSubHeadingListStart
 
-    \resumeItem{Gravitational wave inference with marginalization over waveform uncertainty}\\
-    {APS April Meeting, 2024}
+        
+        \begin{twocolentry}{
+            \href{https://github.com/sinaatalay/rendercv}{github.com/name/repo}
+        }
+            \textbf{Multi-User Drawing Tool}
+            \begin{highlights}
+                \item Developed an electronic classroom where multiple users can simultaneously view and draw on a "chalkboard" with each person's edits synchronized
+                \item Tools Used: C++, MFC
+            \end{highlights}
+        \end{twocolentry}
 
-    \resumeItem{Building surrogate model of spinning binary black hole coalescence using perturbation theory waveforms}\\
-    {23rd Eastern Gravity Meeting, 2023}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            \href{https://github.com/sinaatalay/rendercv}{github.com/name/repo}
+        }
+            \textbf{Synchronized Desktop Calendar}
+            \begin{highlights}
+                \item Developed a desktop calendar with globally shared and synchronized calendars, allowing users to schedule meetings with other users
+                \item Tools Used: C\#, .NET, SQL, XML
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2002
+        }
+            \textbf{Custom Operating System}
+            \begin{highlights}
+                \item Built a UNIX-style OS with a scheduler, file system, text editor, and calculator
+                \item Tools Used: C
+            \end{highlights}
+        \end{twocolentry}
+
+
+
     
-    \resumeItem{Surrogate model for gravitational waveforms from spinning binary black hole coalescence using perturbation theory}\\
-    {APS April Meeting, 2023}
+    \section{Technologies}
+
+
+
+        
+        \begin{onecolentry}
+            \textbf{Languages:} C++, C, Java, Objective-C, C\#, SQL, JavaScript
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Technologies:} .NET, Microsoft SQL Server, XCode, Interface Builder
+        \end{onecolentry}
+
+
     
-    \resumeSubHeadingListEnd
-%----------Achievements----------------
-\section{Academic Achievements}
-  \resumeSubHeadingListStart
-  
-  \resumeItem{}{Awarded \textbf{Bhavesh Gandhi Memorial Prize}(2019-20), IIT Bombay, for best M.Sc. thesis.}
-
-   \resumeItem{}{Qualified \textbf{CSIR NET} June 2019 with \textbf{AIR 66} and eligible for Junior Research Fellowship.}
-   
-   \resumeItem{}{Achieved \textbf{All India Rank 61} in JEST 2018 Physics for Integrated Ph.D.}
-
-  \resumeSubHeadingListEnd
-  
-%-----------EXPERIENCE-----------------
-\section{Teaching Experience}
-    \resumeSubHeadingListStart
-
-    \resumeItem{\normalfont TA for PHY204, Elementary Physics II (Fall 2023), with Dr. Rob Coyne\\
-    Assisted students with their homework assignments and prepared them for exams by providing guidance and support to enhance there  of the subject matter.}
-    
-    \resumeItem{\normalfont TA for AST 108 and AST118H (Spring 2022) with Prof. Douglas Gobeille.}
-    
-    \resumeItem{\normalfont TA for AST108 and AST118 (Fall 2021) with Prof. Douglas Gobeille.\\Helped students to solve their doubts, conducted multiple observations (daytime and night-time).}
-    
-    \resumeSubHeadingListEnd
-
-%--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
- \resumeSubHeadingListStart
- 
- \resumeItem{Languages :}{Python(NumPy, SciPy, SymPy, AstroPy and Pandas), C, Fortran}
- 
- \resumeItem{Statistical Packages :}{emcee, xspec\_emcee}
- 
- \resumeItem{Software :}{Matlab, Mathematica, HEASOFT, XSPEC, and LaTeX}
-
- \resumeItem{Microcontroller :}{Arduino} 
- \resumeSubHeadingListEnd
-
-%---------------------------------------
-\section{Workshop and Online Course}
- \resumeSubHeadingListStart
-    \resumeItem{\normalfont Attended Primordial Black Holes confront GW data workshop at Sapienza University of Rome (Feb 8-12, 2021)(virtual)}
-    
-    \resumeItem{Machine Learning, }{successfully completed the machine learning course taught by \textbf{Andrew Ng}}
-\resumeSubHeadingListEnd
-
-
-%-------Position of responsibility------------------  
-\section{Position of Responsibility}
-  \textbf{Student Companion ISCP, IIT Bombay}\\ 
-  Mentored 12 students from M.Sc. physics and assisted them on various academic and non-academic fronts.
-  \resumeSubHeadingListStart
-  \resumeSubItem{\normalfont 147 student companion were selected out of 256 applicant based on SOP, interview and peer review.}
-  
-  \resumeSubItem{\normalfont Helped in organizing institute orientation program for 1867 students and parent orientation for 600 parents.\\ \vspace{-0.5cm}\null\hfill \textit{June 2019 - June 2020}}
-  
- \resumeSubHeadingListEnd
-
-
-%\section{Hobbies}
- % \resumeSubHeadingListStart
-
-%   \resumeItem{\normalfont Computer Coding: Apart from physics, computer coding and problem solving is another thing that I like to do most.}
-   
- %  \resumeItem{\normalfont Playing guitar.}
-   
-  % \resumeItem{\normalfont Like to play chess and watch anime.} 
-   
-
-  % \resumeSubHeadingListEnd
-
 
 \end{document}
