@@ -6,6 +6,9 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_RUNNER_DEBUG: true
+      ACTIONS_STEP_DEBUG: true
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
