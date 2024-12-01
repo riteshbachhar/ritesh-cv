@@ -6,9 +6,6 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    env:
-      ACTIONS_RUNNER_DEBUG: true
-      ACTIONS_STEP_DEBUG: true
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
@@ -16,15 +13,20 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ritesh_cv.tex
-      - name: Commit to orphan branch
-        run: |
-          git checkout --orphan pdflatex
-          git rm -rf .
-          git add ritesh_cv.pdf
-          git -c user.name='GitHub Action' -c user.email='action@github.com' commit -m "Built paper"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Upload LaTeX log
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: pdflatex
-          force: true
+          name: latex-log
+          path: ritesh_cv.log
+      # - name: Commit to orphan branch
+      #   run: |
+      #     git checkout --orphan pdflatex
+      #     git rm -rf .
+      #     git add ritesh_cv.pdf
+      #     git -c user.name='GitHub Action' -c user.email='action@github.com' commit -m "Built paper"
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: pdflatex
+      #     force: true
