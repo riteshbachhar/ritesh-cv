@@ -138,7 +138,7 @@
 \newenvironment{threecolentry}[3][]{
     \onecolentry
     \def\thirdColumn{#3}
-    \setcolumnwidth{2.5 cm, \fill, 4.5 cm}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
     \begin{paracol}{3}
     {\raggedright #2} \switchcolumn
 }{
@@ -169,13 +169,13 @@
 
 % --- Hyperlink Redefinition ---
 \let\hrefWithoutArrow\href
+
 \renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
 
 
-% ----- Main Document -----
 \begin{document}
-
-\newcommand{\AND}{\unskip                       % Define a custom horizontal separator command
+% Define a custom horizontal separator command
+\newcommand{\AND}{\unskip
     \cleaders\copy\ANDbox\hskip\wd\ANDbox
     \ignorespaces
 }
@@ -183,23 +183,23 @@
 \newsavebox\ANDbox                              % Create a reusable empty box for the separator
 \sbox\ANDbox{}                                  % Define the box (currently empty; customizable later)
 
-\placelastupdatedtext                           % Add "Last updated" text to the document
+% Add "Last updated" text to the document
+\placelastupdatedtext
 
-% ---- Header ----
+% ---- Custom Header ----
 \begin{header}
-
-  % ---- Name ----
   \fontsize{30 pt}{30 pt}
-  \textbf{Ritesh Bachhar}
+  \textbf{Ritesh Bachhar}                       % Name
   \vspace{0.3 cm}
-  \normalsize % Set normal font size for the following text
 
   % ---- Location ----
-  \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}RI, USA}
+  \normalsize % Set normal font size for the following text
+  \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}RI, USA}%
   \kern 0.25 cm%
   \AND%
-  \kern 0.25 cm%
+
   % ---- Contact Information ----
+  \kern 0.25 cm%
   \mbox{\hrefWithoutArrow{mailto:riteshbachhar@uri.edu}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}riteshbachhar@uri.edu}}%
   \kern 0.25 cm%
   \AND%
@@ -207,132 +207,119 @@
   \mbox{\hrefWithoutArrow{mailto:riteshbachhar@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}riteshbachhar@gmail.com}}%
   % \mbox{\hrefWithoutArrow{tel:+90-541-999-99-99}{{\footnotesize\faPhone*}\hspace*{0.13cm}0541 999 99 99}}%
   \kern 0.25 cm%
-  % ---- Personal website ----
   \AND%
+
+  % ---- Personal Website ----
   \kern 0.25 cm%
-  \mbox{\hrefWithoutArrow{https://riteshbachhar.com}{{\footnotesize\faLink}\hspace*{0.13cm}riteshbachhar.com}}%
+  \mbox{\hrefWithoutArrow{https://yourwebsite.com/}{{\footnotesize\faLink}\hspace*{0.13cm}riteshbachhar.com}}%
   \kern 0.25 cm%
   \AND%
-  % ---- LinkedIn and GitHub ----
+
+  % --- InspireHEP Profile ---
   \kern 0.25 cm%
   \mbox{\hrefWithoutArrow{https://inspirehep.net/authors/2160749?ui-citation-summary=true}{{\footnotesize\aiInspire}\hspace*{0.13cm}InspireHEP}}%
   \kern 0.25 cm%
   \AND%
+
+  % --- LinkedIn Profile ---
   \kern 0.25 cm%
-  \mbox{\hrefWithoutArrow{https://scholar.google.com/citations?user=rqhoVfgAAAAJ&hl=en&authuser=1}{{\footnotesize\aiGoogleScholar}\hspace*{0.13cm}Google Scholar}}%
+  \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/riteshbachhar/}{{\footnotesize\faLinkedin}\hspace*{0.13cm}LinkedIn}}%
   \kern 0.25 cm%
   \AND%
+
+  % --- GitHub Profile ----
   \kern 0.25 cm%
   \mbox{\hrefWithoutArrow{https://github.com/riteshbachhar}{{\footnotesize\faGithub}\hspace*{0.13cm}GitHub}}%
 \end{header}
 
 \vspace{0.3 cm - 0.3 cm}
 
-% ----- Research Interests -----
-\section{Research Interests}
-  \begin{onecolentry}
-    General relativity~(GR), Surrogate models of gravitational waves, Gravitational wave parameter estimation, Black hole merger phenomenology, point-particle black hole perturbation theory
-  \end{onecolentry}
+    % Section
+    \section{Research Interest}
+    \begin{onecolentry}
+      General relativity, Surrogate models of gravitational waves, Gravitational parameter estimation and inference, Black hole merger phenomenology
+    \end{onecolentry}
 
-% ---------- Education ----------
-\section{Education}
-  \begin{threecolentry}{\textbf{Ph.D.,}}{
-    September 2021 - Present
-  }
-    University of Rhode Island, Kingston, RI, USA
-    \begin{highlights}
-      \item CPI: 3.99/4.0
-      \item Advisor: Dr. Gaurav Khanna
-    \end{highlights}
-  \end{threecolentry}
+    % \section{Welcome to RenderCV!}
+        
+    %     \begin{onecolentry}
+    %         \href{https://rendercv.com}{RenderCV} is a LaTeX-based CV/resume version-control and maintenance app. It allows you to create a high-quality CV or resume as a PDF file from a YAML file, with \textbf{Markdown syntax support} and \textbf{complete control over the LaTeX code}.
+    %     \end{onecolentry}
 
-\begin{threecolentry}{\textbf{M.Sc. Physics,}}{
-    July 2018 - June, 2020
-  }
-    Indian Institute of Technology Bombay, Mumbai, India
-  \begin{highlights}
-    \item CPI: 9.17/10
-    \item Advisor: Dr. Varun Bhalerao
-    \item Thesis: Phase resolved analysis of Centaurus X-3
-  \end{highlights}
-\end{threecolentry} 
+    %     \vspace{0.2 cm}
 
-\begin{threecolentry}{\textbf{B.Sc. Physics,}}{
-  July 2014 - April 2017
-}
-  Scottish Church College, Kolkata, India
-  \begin{highlights}
-      \item \textbf{Coursework:} Classical Mechanics, Quantum Mechanics, Electrodynamics, Statistical Mechanics, Thermodynamics, Mathematical Physics, Electronics, and Optics
-  \end{highlights}
-\end{threecolentry}
+    %     \begin{onecolentry}
+    %         The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
+    %     \end{onecolentry}
 
 
-% ---------- Awards & Honors ----------
-\section{Awards} 
-\begin{onecolentry}
-  \begin{highlightsforbulletentries}
-    \item \textbf{Dean's Fellowship}, University of Rhode Island
-
-    \item NASA travel grant of \$1500 for attending the 15th LISA Symposium, Dublin, Ireland, 2024.
-
-    \item \textbf{Bhavesh Gandhi Memorial Prize}(2019-20), IIT Bombay, for best M.Sc. thesis.
-
-    \item Qualified \textbf{CSIR NET} June 2019 with \textbf{AIR 66} and eligible for Junior Research Fellowship.
-  \end{highlightsforbulletentries}
-\end{onecolentry}
-
-
-% ---------- Employment ----------
-\section{Employment} 
-\begin{onecolentry}
-  \begin{highlightsforbulletentries}
-    \item \textbf{Dean's Fellow}, University of Rhode Island, Fall 2024 - Summer 2025
-    \item \textbf{Research Assistant}, University of Rhode Island, Fall 2022 - Spring 2024
-    \item \textbf{Teaching Assistant}, University of Rhode Island, Fall 2021 - Spring 2022
-  \end{highlightsforbulletentries}
-\end{onecolentry}
-
-
-% ---------- Experience ----------
-
-
-
-
-% ---------- Publications ----------
-
-
-% ---------- Experience ----------    
-\section{Experience}
-\begin{twocolentry}{
-    Cupertino, CA 
     
-    June 2005 – Aug 2007
-}
-    \textbf{Apple}, Software Engineer
-    \begin{highlights}
-        \item Reduced time to render user buddy lists by 75\% by implementing a prediction algorithm
-        \item Integrated iChat with Spotlight Search by creating a tool to extract metadata from saved chat transcripts and provide metadata to a system-wide search database
-        \item Redesigned chat file format and implemented backward compatibility for search
-    \end{highlights}
-\end{twocolentry}
+    \section{Quick Guide}
+
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
 
 
-\vspace{0.2 cm}
+        \item Each section title is arbitrary and each section contains a list of entries.
 
-\begin{twocolentry}{
-    Redmond, WA
+        \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
 
-June 2003 – Aug 2003
-}
-    \textbf{Microsoft}, Software Engineer Intern
-    \begin{highlights}
-        \item Designed a UI for the VS open file switcher (Ctrl-Tab) and extended it to tool windows
-        \item Created a service to provide gradient across VS and VS add-ins, optimizing its performance via caching
-        \item Built an app to compute the similarity of all methods in a codebase, reducing the time from $\mathcal{O}(n^2)$ to $\mathcal{O}(n \log n)$
-        \item Created a test case generation tool that creates random XML docs from XML Schema
-        \item Automated the extraction and processing of large datasets from legacy systems using SQL and Perl scripts
-    \end{highlights}
-\end{twocolentry}
+        \item Select a section title, pick an entry type, and start writing your section!
+
+        \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
+
+
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+    \section{Education}
+        \begin{threecolentry}{\textbf{BS}}{
+            Sept 2000 – May 2005
+        }
+            \textbf{University of Pennsylvania}, Computer Science
+            \begin{highlights}
+                \item GPA: 3.9/4.0 (\href{https://example.com}{a link to somewhere})
+                \item \textbf{Coursework:} Computer Architecture, Comparison of Learning Algorithms, Computational Theory
+            \end{highlights}
+        \end{threecolentry}
+
+
+    
+    \section{Experience}
+
+
+
+        
+        \begin{twocolentry}{
+            Cupertino, CA
+
+        June 2005 – Aug 2007
+        }
+            \textbf{Apple}, Software Engineer
+            \begin{highlights}
+                \item Reduced time to render user buddy lists by 75\% by implementing a prediction algorithm
+                \item Integrated iChat with Spotlight Search by creating a tool to extract metadata from saved chat transcripts and provide metadata to a system-wide search database
+                \item Redesigned chat file format and implemented backward compatibility for search
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Redmond, WA
+
+        June 2003 – Aug 2003
+        }
+            \textbf{Microsoft}, Software Engineer Intern
+            \begin{highlights}
+                \item Designed a UI for the VS open file switcher (Ctrl-Tab) and extended it to tool windows
+                \item Created a service to provide gradient across VS and VS add-ins, optimizing its performance via caching
+                \item Built an app to compute the similarity of all methods in a codebase, reducing the time from $\mathcal{O}(n^2)$ to $\mathcal{O}(n \log n)$
+                \item Created a test case generation tool that creates random XML docs from XML Schema
+                \item Automated the extraction and processing of large datasets from legacy systems using SQL and Perl scripts
+            \end{highlights}
+        \end{twocolentry}
 
 
 

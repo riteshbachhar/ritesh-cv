@@ -1,31 +1,27 @@
-name: Build LaTeX Document
-
+name: LaTeX build
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+    branches-ignore:
+      - '/pdflatex'
 jobs:
-  build:
+  build_latex:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Set up Git repository
         uses: actions/checkout@v2
-
-      - name: Install TeX Live
+      - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: main.tex
-
-      - name: Compile LaTeX document
-        run: pdflatex main.tex
-
-      - name: Upload PDF
-        uses: actions/upload-artifact@v2
+          root_file: ritesh_cv.tex
+      - name: Commit to orphan branch
+        run: |
+          git checkout --orphan pdflatex
+          git rm -rf .
+          git add ritesh_cv.pdf
+          git -c user.name='GitHub Action' -c user.email='action@github.com' commit -m "Built paper"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          name: Compiled-PDF
-          path: main.pdf
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: pdflatex
+          force: true
