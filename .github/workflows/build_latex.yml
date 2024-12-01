@@ -7,17 +7,31 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
+      - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: "Debug: List files before compilation"
+        run: ls -la
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ritesh_cv.tex
+
+      - name: "Debug: List files after compilation"
+        run: ls -la
+
       - name: Upload LaTeX log
         uses: actions/upload-artifact@v3
         with:
           name: latex-log
           path: ritesh_cv.log
+
+      - name: Upload All Files
+        uses: actions/upload-artifact@v3
+        with:
+          name: all-files
+          path: .
       # - name: Commit to orphan branch
       #   run: |
       #     git checkout --orphan pdflatex
