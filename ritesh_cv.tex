@@ -154,6 +154,15 @@
     \par\kern\topsep
 }
 
+% -------- Custom Commands --------
+\newcommand{\publication}[4]{%
+    \textbf{#1} \\ % Title
+    \textit{#2} \\ % Authors
+    \textit{#3} \\ % Journal and Year
+    DOI: \href{#4}{#4} % DOI
+}
+
+
 % --- Last Updated Text ---
 \newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
   \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
@@ -161,7 +170,7 @@
         \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
         \LenToUnit{\paperheight-1.0 cm}
     ){\vtop{{\null}\makebox[0pt][c]{
-        \small\color{gray}\textit{Last updated in November 2024}\hspace{\widthof{Last updated in November 2024}}
+        \small\color{gray}\textit{Last updated in December 2024}\hspace{\widthof{Last updated in December 2024}}
     }}}%
   }%
 }%
@@ -293,19 +302,82 @@
 \end{onecolentry}
 
 
-% ---------- Experience ----------
-
-
-
-
 % ---------- Publications ----------
+\section{Publications}
 
+\begin{enumerate}
+    \item \publication{Incorporating waveform calibration error in gravitational-wave modeling and inference for SEOBNRv4}
+            {\textbf{Ritesh Bachhar}, Michael Pürrer, Stephen R. Green}
+            {arXiv:2410.17168, October 2024}
+            {https://arxiv.org/abs/2410.17168}
+
+    \item \publication{Gravitational wave surrogate model for spinning, intermediate mass ratio binaries based on perturbation theory and numerical relativity}
+          {Katie Rink, \textbf{Ritesh Bachhar}, Tousif Islam \textit{et al.}}
+          {arXiv:2407.18319, July 2024}
+          {https://arxiv.org/abs/2407.18319}
+
+    \begin{samepage}        
+    \item \publication{Binary Black Hole Coalescence Phenomenology from Numerical Relativity}
+            {Richard Price, \textbf{Ritesh Bachhar}, Gaurav Khanna}
+            {arXiv:2312.15885; December 2023}
+            {https://arxiv.org/abs/2312.15885}
+    \end{samepage}
+    
+    \item \publication{Angular Momentum for Black Hole Binaries in Numerical Relativity}
+            {\textbf{Ritesh Bachhar}, Richard Price, Gaurav Khanna}
+            {PRD 108,064019; September 2023}
+            {https://journals.aps.org/prd/abstract/10.1103/PhysRevD.108.064019}
+
+    \item \publication{Timing and spectral studies of Cen X-3 in multiple luminosity states using AstroSat}
+          {\textbf{Ritesh Bachhar}, Gayathri Raman, Varun Bhalerao \textit{et al.}}
+          {MNRAS, 517, 4138; October 2022}
+          {https://academic.oup.com/mnras/article/517/3/4138/6760011}
+\end{enumerate}
+
+
+% ---------- Research Experience ----------
+\section{Research Experience}
+\begin{twocolentry}{September 2021 - Present}{\textbf{Surrogate modeling of gravitational waves}}
+    \begin{highlights}
+        \item Studied point-particle black hole perturbation theory
+        \item Developing reduced-order surrogate models for gravitational waves from binary black holes
+        \item Combining numerical relativity and perturbation theory to model the gravitational waveforms of spinning black holes
+        \item Modeling the gravitational waveforms of intermediate mass ratio inspirals
+    \end{highlights}
+\end{twocolentry}
+
+\vspace{0.2 cm}
+
+\begin{twocolentry}{July 2023 - Present}{\textbf{Systematics in gravitation wave modeling}}
+    \begin{highlights}
+        \item Studied the impact of waveform calibration errors on gravitational wave parameter estimation in the context of \texttt{SEOBNRv4}
+        \item Incorporated the waveform calibration error in the gravitation wave modeling
+        \item Performed parameter estimation studies on simulated data to quantify the impact of waveform calibration errors
+    \end{highlights}
+\end{twocolentry}
+
+\vspace{0.2 cm}
+
+\begin{twocolentry}{August 2022 - January 2024}{\textbf{Black hole merger phenomenology}}
+    \begin{highlights}
+        \item Studied the phenomenology of binary black hole mergers
+        \item Integrating approximate methods to complement numerical studies
+        \item Investigated the role of orbital angular momentum in the dynamics of binary black hole mergers
+    \end{highlights}
+\end{twocolentry}
+
+\vspace{0.2 cm}
+\begin{twocolentry}{July 2019 - January 2022}{\textbf{X-ray analysic of accerating pulsars}}
+    \begin{highlights}
+        \item Studied the process of X-ray emission of HMXBs, particularly Cen X-3
+        \item Analyzed the phase resolved X-ray spectra of Cen X-3 using AstroSat data
+        \item Observed Quasi-periodic oscillations in the X-ray light curves of Cen X-3
+    \end{highlights}
+\end{twocolentry}
 
 % ---------- Experience ----------    
 \section{Experience}
-\begin{twocolentry}{
-    Cupertino, CA 
-    
+\begin{twocolentry}{    
     June 2005 – Aug 2007
 }
     \textbf{Apple}, Software Engineer
@@ -320,9 +392,7 @@
 \vspace{0.2 cm}
 
 \begin{twocolentry}{
-    Redmond, WA
-
-June 2003 – Aug 2003
+    June 2003 – Aug 2003
 }
     \textbf{Microsoft}, Software Engineer Intern
     \begin{highlights}
@@ -336,26 +406,6 @@ June 2003 – Aug 2003
 
 
 
-    
-    \section{Publications}
-
-
-
-        
-        \begin{samepage}
-            \begin{twocolentry}{
-                Jan 2004
-            }
-                \textbf{3D Finite Element Analysis of No-Insulation Coils}
-
-                \vspace{0.10 cm}
-
-                \mbox{Frodo Baggins}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Samwise Gamgee}
-                \vspace{0.10 cm}
-
-        \href{https://doi.org/10.1109/TASC.2023.3340648}{10.1109/TASC.2023.3340648}
-            \end{twocolentry}
-        \end{samepage}
 
 
     
