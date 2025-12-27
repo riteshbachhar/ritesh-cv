@@ -2,4 +2,4 @@
 # pdflatex ritesh_cv.tex 
 # Unicode-compliant LaTeX engines
 # xelatex ritesh_cv.tex
-xelatex rse_resume.tex
+xelatex general_resume.tex
