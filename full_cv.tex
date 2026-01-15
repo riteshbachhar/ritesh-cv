@@ -3,10 +3,10 @@
 % --------- Packages --------
 \usepackage[
     ignoreheadfoot,
-    top=2 cm,
-    bottom=2 cm,
-    left=2 cm,
-    right=2 cm,
+    top=1.5 cm,
+    bottom=1.5 cm,
+    left=1.5 cm,
+    right=1.5 cm,
     footskip=1.0 cm,
 ]{geometry}
 
@@ -212,7 +212,7 @@
 \section{Education}
 
 \begin{threecolentry}{\textbf{Ph.D. Physics}}{
-    September 2021 - May 2025 (Expected)
+    September 2021 - May 2026 (Expected)
   }
     University of Rhode Island, Kingston, RI
   \begin{highlights}
@@ -232,7 +232,8 @@
   \begin{highlights}
     \item Thesis: Phase-resolved analysis of Centaurus X-3 using AstroSat
     \item GPA: 9.17/10.00
-    \item Bhavesh Gandhi Memorial Prize for Best M.Sc. Thesis (2020)
+    \item Bhavesh Gandhi Memorial Prize for outstanding performance in 
+          M.Sc. Physics (2020)
   \end{highlights}
 \end{threecolentry} 
 
@@ -244,7 +245,7 @@
   Scottish Church College, Kolkata, India
 \end{threecolentry}
 
-\vspace{0.2 cm}
+
 
 % ---- Technical Expertise ----
 \section{Technical Skills}
@@ -286,10 +287,10 @@
   \texttt{GWTools}
 \end{onecolentry}
 
-\vspace{0.2 cm}
 
-% ---- Software Packages & Tools ----
-\section{Software Packages \& Tools}
+
+% ---- Research Software & Models ----
+\section{Research Software \& Models}
 
 \begin{onecolentry}
   \textbf{BHPTNRSur2dq1e3: Black Hole Perturbation Theory Surrogate Model} \hfill 
@@ -299,22 +300,27 @@
   \begin{highlights}
     \item Developed Black Hole Perturbation Theory (BHPT) surrogate model for gravitational 
     waveforms across 2D parameter space (mass ratio $q \in [3-1000]$, spin $\chi_1 \in [-0.6, 0.8]$)
+
     \item Achieved $10^6\times$ speedup over numerical simulations with relative L2 error $<10^{-5}$, 
-    enabling fast evaluation of intermediate mass-ratio binaries
+    enabling fast waveform evaluation of intermediate mass-ratio binaries
+
     \item Engineered modular pipeline using SVD-based dimensionality reduction, 
     empirical interpolation, and Gaussian process regression~(GPR), with independent training, 
     validation, and evaluation modules enabling modular testing and collaborative extension
+
     \item Integrated into SXS collaboration's surrogate modeling infrastructure 
     and \texttt{gwsurrogate} package, enabling seamless deployment in Bayesian inference 
     workflows
+
     \item Released production model with comprehensive documentation and Jupyter tutorial notebooks; 
     in active use by multiple research groups for intermediate mass-ratio binary analysis
+
     \item Links: \href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate}{BHPTNRSurrogate} 
     | \href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate/blob/main/tutorials/BHPTNRSur2dq1e3.ipynb}{Tutorial}
   \end{highlights}
 \end{onecolentry}
 
-\vspace{0.4 cm}
+\vspace{0.2 cm}
 
 \begin{onecolentry}
   \textbf{SEOBNRv4CE: Waveform Model with Uncertainty Quantification} \hfill 
@@ -322,7 +328,7 @@
   
   \textit{Primary Developer | Python}
   \begin{highlights}
-    \item Developed effective-one-body gravitational waveform model incorporating calibration 
+    \item Developed probabilistic surrogate model incorporating calibration 
     uncertainties using GPR for conservative parameter estimation
     \item Implemented frequency-domain amplitude and phase deviation model at 10 
     logarithmically-spaced nodes, interpolated via cubic splines for efficient waveform evaluation
@@ -337,6 +343,26 @@
 \end{onecolentry}
 
 \vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Anti-Money Laundering Detection with Temporal-GNNs} \hfill 
+  \textit{September 2025 - March 2025}
+  
+  \textit{Primary Developer | PyTorch}
+  \begin{highlights}
+    \item Developed a Temporal GNN-based fraud detection system to identify money laundering 
+          patterns across 9.5M-transaction network, identifying behavioral anomalies and suspicious 
+          patterns
+    \item Achieved 0.84 PR-AUC on highly imbalanced data (0.15\% positive rate), 
+          outperforming XGBoost by 41\% through graph-based neural network and feature engineering
+    \item Optimized model for business constraints: 85\% recall at 80\% precision, balancing 
+          false positive costs with detection coverage
+    \item Selected as top project by The Erd\H{o}s Institute \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{Deep Learning Bootcamp}} | 
+          Project link: \href{https://github.com/riteshbachhar/AML-detection-using-AI}{AML-detection-using-AI}
+  \end{highlights}
+\end{onecolentry}
+
+
 
 % ---- Research Experience ----
 \section{Research Experience}
@@ -392,7 +418,7 @@
   \end{highlights}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+
 
 % ---------- Teaching Experience ----------
 \section{Teaching Experience}
@@ -412,6 +438,8 @@
       \end{itemize}   
     \end{highlightsforbulletentries}
 \end{onecolentry}
+
+
 
 % ---- Publications ----
 \section{Publications}
@@ -438,7 +466,7 @@
           {https://academic.oup.com/mnras/article/517/3/4138/6760011}
 \end{enumerate}
 
-\vspace{0.2 cm}
+
 
 % ---- Awards ----
 \section{Awards \& Funding}
@@ -451,7 +479,7 @@
   \end{highlightsforbulletentries}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+
 
 % ---- Professional Activities ----
 \section{Professional Activities \& Community Engagement}
@@ -464,11 +492,6 @@
         
     \item \textbf{Teaching \& Mentorship:} Teaching Assistant for physics and astronomy courses (2021-2023); 
     mentored undergraduate students in computational methods and Python programming
-    
-    \item \textbf{Deep Learning Bootcamp Certificate} (Fall 2025), The Erd\H{o}s Institute - 
-    completed intensive program in applied machine learning; capstone project on 
-    Graph Neural Networks for fraud detection in 9.5M financial transaction network,
-    achieving 0.84 PR-AUC; selected as \textbf{top project}
 
     \item \textbf{Memberships:} LISA Consortium (Waveform WG), American Physical Society (APS), 
     Simulating eXtreme Spacetimes (SXS) Collaboration
