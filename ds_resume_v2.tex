@@ -1,0 +1,246 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+% \input{glyphtounicode} % For PDF unicode characters
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge Ritesh Bachhar} \\ \vspace{1pt}
+    \small +1-(401)-212-2669 $|$ Providence, RI $|$
+    \href{mailto:riteshbachhar@gmail.com}{\underline{riteshbachhar@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/riteshbachhar/}{\underline{linkedin.com/in/riteshbachhar/}} $|$
+    \href{https://github.com/riteshbachhar}{\underline{github.com/riteshbachhar}}
+\end{center}
+
+% ----------ABOUT ME-----------
+\section{About Me}
+% PhD candidate with extensive research experience in computational physics, specializing in 
+% surrogate modeling, Bayesian inference, and uncertainty quantification. Experienced in building 
+% scalable machine learning systems and high-performance computing workflows. Seeking to apply 
+% computational and statistical modeling expertise to solve complex, business-driven problems.
+PhD candidate with production ML experience in fraud detection, statistical modeling, 
+and scalable system development. Developed Temporal GNN for financial fraud detection 
+achieving 0.84 PR-AUC on 9.5M transactions with severe class imbalance. Expertise in 
+Python, PyTorch, and building end-to-end ML pipelines for high-stakes applications. 
+Strong background in uncertainty quantification, time-series analysis, and deploying 
+production models.
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+      \textbf{Machine Learning}{: PyTorch, XGBoost, Scikit-learn, Graph Neural Networks~(GNN), 
+      Gaussian Process Regression (GPR), NLP, Anomaly Detection, Imbalanced Classification, 
+      Feature Engineering, Model Evaluation} \vspace{2pt} \\ 
+      \textbf{Programming}{: Python (7+ years - numpy, pandas, Scipy, Polars), SQL, Bash, 
+      MATLAB, C} \vspace{2pt} \\
+      \textbf{Quantitative Analysis}{: Bayesian inference, Time-Series Modeling, 
+      Uncertainty Quantification~(UQ), Monte Carlo Simulation, Hypothesis Testing, 
+      A/B Testing} \vspace{2pt} \\
+      \textbf{High-Performance Computing}{: GPU acceleration (PyTorch, CuPy), Distributed Computing 
+      (MPI, OpenMP), SLURM, Parallel Workflows, Cluster Optimization} \vspace{2pt} \\
+      \textbf{MLOps \& Engineering}{: Git/GitHub, CI/CD pipelines, Unit Testing (pytest), Pip 
+      Packaging, Production Deployment}
+    }}
+ \end{itemize}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Anti-Money Laundering Detection with Temporal-GNNs}}{Sep 2025 - Nov 2025}
+          \resumeItemListStart
+            \resumeItem{Developed a Temporal GNN-based fraud detection system to identify money laundering 
+            patterns across 9.5M-transaction network, identifying behavioral anomalies and suspicious patterns}
+            \resumeItem{Achieved 0.84 PR-AUC on highly imbalanced data (0.15\% positive rate), 
+            outperforming XGBoost by 41\% through graph-based neural network and feature engineering}
+            \resumeItem{Optimized model for business constraints: 85\% recall at 80\% precision, balancing 
+            false positive costs with detection coverage}
+            \resumeItem{Selected as top project by The Erd\H{o}s Institute \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{Deep Learning Bootcamp}}}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+  
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Research Assistant}{Aug 2022 -- Present}
+      {University of Rhode Island}{}
+      \resumeItemListStart
+
+        \resumeItem{Built and deployed production time-series models achieving $10^6\times$ performance 
+        speedups with $<10^{-5}$ relative error; integrated into open-source frameworks (\texttt{gwsurrogate}) 
+        used by multiple researcher groups globally}
+
+        \resumeItem{Developed scalable training pipelines optimized for distributed HPC systems, implementing 
+        parallel workflows and GPU acceleration for large-scale model training}
+
+        \resumeItem{Implemented uncertainty quantification framework using Gaussian Process Regression 
+        to model systematic errors and prevent overconfident predictions during inference}
+
+        \resumeItem{Engineered production software packages with modular architecture, automated 
+        testing (pytest), CI/CD pipelines, and comprehensive documentation enabling community adoption}
+        
+        % \resumeItem{Research expertise in surrogate modeling, uncertainty quantification, and Bayesian inference for GW analysis}
+        % \resumeItem{Mentored students in computational modeling and HPC workflows}
+      \resumeItemListEnd
+      
+      \vspace{1pt}
+% -----------Multiple Positions Heading-----------
+  %  \resumeSubSubheading
+  %   {Software Engineer I}{Oct 2014 - Sep 2016}
+  %   \resumeItemListStart
+  %      \resumeItem{Apache Beam}
+  %        {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+  %   \resumeItemListEnd
+  %  \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Research Computing Facilitator trainee (NSF CAREERS)}{May 2022 - Aug 2022}
+      {Yale University}{}
+      \resumeItemListStart
+        \resumeItem{Engineered distributed NLP pipeline processing 5.8M Wikipedia articles on MGHPCC Unity 
+        cluster; implemented parallel batch processing, data transformation, and text extraction at scale}
+        \resumeItem{Trained GloVe word embedding model on processed corpus, achieving 
+        80\% accuracy on standard word analogy benchmarks}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Rhode Island}{Aug 2021 -- Dec 2026}
+      {PhD, Physics $|$ GPA: 3.99/4.00 $|$ Dean's Fellowship (2024 - 2025)}{Kingston, RI}
+      \resumeItemListStart
+        % \resumeItem{Dissertation: Advancing Gravitational Wave Modeling - 
+        % Expanding Parameter Space and Quantifying Uncertainty}
+        \resumeItem{Selected peer reviewed publications on numerical modeling 
+        (arXiv: \href{https://arxiv.org/abs/2407.18319}{\underline{2407.18319}}, 
+        \href{https://arxiv.org/abs/2410.17168}{\underline{2410.17168}})}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Indian Institute of Technology Bombay}{Aug 2018 -- June 2020}
+      {M.Sc. Physics $|$ GPA: 3.67/4.00}{Mumbai, India}
+      \resumeItemListStart
+        \resumeItem{Award: Bhavesh Gandhi Memorial Prize for outstanding performance in M.Sc. Physics (2020)}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------AWARDS & HONORS-----------
+\section{Awards \& Certificates}
+  \begin{itemize}[leftmargin=0.15in, label={}, noitemsep]
+      \item \textbf{Dean's Fellowship}, University of Rhode Island (2024-2025) for academic excellence and potential
+      \item \textbf{Deep Learning Bootcamp Certificate},
+      \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{The Erd\H{o}s Institute (2025)}}
+      \item \textbf{NASA Travel Grant} (\$1,500, 2024) - to attend the space-borne telescope, LISA Symposium, Dublin, Ireland
+      % \item \textbf{Professional memberships}: LISA Consortium, American Physical Society, SXS Collaboration
+  \end{itemize}
+
+
+
+%-------------------------------------------
+\end{document}
