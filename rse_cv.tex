@@ -1,0 +1,478 @@
+\documentclass[10pt, letterpaper]{article}
+
+% --------- Packages --------
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+
+\usepackage[explicit]{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{academicons}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Ritesh Bachhar's CV},
+    pdfauthor={Ritesh Bachhar},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% -------- Primary Color Definition --------
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+
+% -------- Machine-Readable PDF Settings --------
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro}
+
+% -------- General Settings --------
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+
+% -------- Footer Customization --------
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Ritesh Bachhar - Page \thepage{} of \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+% -------- Section Title Formatting --------
+\titleformat{\section}{
+    \needspace{4\baselineskip}
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] 
+
+% -------- Section Title Spacing --------
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+% -------- Custom Bullet Point Formatting --------
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+% -------- Custom Environments --------
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 3.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{2.5 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+% -------- Custom Commands --------
+\newcommand{\publication}[4]{%
+    \textbf{#1} \\ 
+    \textit{#2} \\ 
+    \textit{#3} \\ 
+    DOI: \href{#4}{#4}
+}
+
+% --- Hyperlink Redefinition ---
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+% ----- Main Document -----
+\begin{document}
+
+\newcommand{\AND}{\unskip
+    \cleaders\copy\ANDbox\hskip\wd\ANDbox
+    \ignorespaces
+}
+
+\newsavebox\ANDbox
+\sbox\ANDbox{}
+
+% ---- Header ----
+\begin{header}
+  \fontsize{30 pt}{30 pt}
+  \textbf{Ritesh Bachhar}
+  \vspace{0.2 cm}
+
+  \normalsize
+  % \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Kingston, RI}%
+  % \kern 0.25 cm%
+  % \AND%
+  % \kern 0.25 cm%
+  \mbox{{\footnotesize\faEnvelope}\hspace*{0.13cm}\hrefWithoutArrow{mailto:riteshbachhar@uri.edu}{riteshbachhar@uri.edu}}%
+  \kern 0.25 cm%
+  \AND%
+  \kern 0.25 cm%
+  \mbox{{\footnotesize\faPhone*}\hspace*{0.13cm}\hrefWithoutArrow{tel:+1-401-212-2669}{(401) 212-2669}}%
+  \kern 0.25 cm%
+  \AND%
+  \kern 0.25 cm%
+  \mbox{{\footnotesize\faGlobe}\hspace*{0.13cm}\hrefWithoutArrow{https://www.riteshbachhar.com}{riteshbachhar.com}}%
+  \kern 0.25 cm%
+  \AND%
+  \kern 0.25 cm%
+  \mbox{{\footnotesize\faGithub}\hspace*{0.13cm}\hrefWithoutArrow{https://github.com/riteshbachhar}{riteshbachhar}}%
+  \kern 0.25 cm%
+  \AND%
+  \kern 0.25 cm%
+  % \mbox{{\footnotesize\faLinkedin}\hspace*{0.13cm}\hrefWithoutArrow{https://www.linkedin.com/in/riteshbachhar/}{linkedin.com/in/riteshbachhar}}%
+\end{header}
+
+\vspace{0.3 cm}
+
+% ---- Professional Summary ----
+% \section{Research Software Engineering Philosophy}
+% \begin{onecolentry}
+% Building sustainable, well-tested research software that bridges theoretical physics with 
+% computational infrastructure. I develop production-quality tools that enable reproducible 
+% science across gravitational wave astrophysics, emphasizing correctness through rigorous validation, 
+% modular architecture, and community-driven development practices.
+% \end{onecolentry}
+
+% ---- Education ----
+\section{Education}
+
+\begin{threecolentry}{\textbf{Ph.D. Physics}}{
+    September 2021 - May 2025 (Expected)
+  }
+    University of Rhode Island, Kingston, RI
+  \begin{highlights}
+    \item Dissertation: Advancing Gravitational Wave Modeling for Binary Black Holes:
+          Expanding Parameter Space and Quantifying Uncertainty
+    \item GPA: 3.99/4.00
+    \item Dean's Fellowship (2024-2025)
+  \end{highlights}
+\end{threecolentry}
+
+\vspace{0.2 cm}
+
+\begin{threecolentry}{\textbf{M.Sc. Physics}}{
+    July 2018 - June 2020
+  }
+    Indian Institute of Technology Bombay, Mumbai, India
+  \begin{highlights}
+    \item Thesis: Phase-resolved analysis of Centaurus X-3 using AstroSat
+    \item GPA: 9.17/10.00
+    \item Bhavesh Gandhi Memorial Prize for Best M.Sc. Thesis (2020)
+  \end{highlights}
+\end{threecolentry} 
+
+\vspace{0.2 cm}
+
+\begin{threecolentry}{\textbf{B.Sc. Physics}}{
+  July 2014 - April 2017
+}
+  Scottish Church College, Kolkata, India
+\end{threecolentry}
+
+\vspace{0.2 cm}
+
+% ---- Technical Expertise ----
+\section{Technical Skills}
+
+\begin{onecolentry}
+  \textbf{Programming Languages:} Python (7+ years), LaTeX, C, Bash, MATLAB, Fortran
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Machine Learning:} PyTorch, Gaussian Process Regression (GPR), Graph Neural Networks (GNNs), fastai
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{High-Performance Computing:} MGHPCC Unity, Slurm workflow orchestration, Parallel computing~(MPI, joblib), 
+  GPU acceleration~(PyTorch, CuPy)
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Software Engineering:} Version control~(Git/GitHub), GitHub Actions~(CI/CD),  
+  comprehensive documentation, pytest, Apptainer
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Data Analysis \& ML:} Bayesian inference pipelines, Gaussian process regression, SVD-based dimensionality reduction, uncertainty quantification, PyTorch for deep learning applications
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Gravitational Wave Software:} \texttt{gwsurrogate}, \texttt{bilby}, \texttt{LALSuite}, 
+  \texttt{GWTools}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+% ---- Software Packages & Tools ----
+\section{Software Packages \& Tools}
+
+\begin{onecolentry}
+  \textbf{BHPTNRSur2dq1e3: Black Hole Perturbation Theory Surrogate Model} \hfill 
+  \textit{2022 - Present}
+  
+  \textit{Lead Developer | Python}
+  \begin{highlights}
+    \item Developed Black Hole Perturbation Theory (BHPT) surrogate model for gravitational 
+    waveforms across 2D parameter space (mass ratio $q \in [3-1000]$, spin $\chi_1 \in [-0.6, 0.8]$)
+    \item Achieved $10^6\times$ speedup over numerical simulations with relative L2 error $<10^{-5}$, 
+    enabling fast evaluation of intermediate mass-ratio binaries
+    \item Engineered modular pipeline using SVD-based dimensionality reduction, 
+    empirical interpolation, and Gaussian process regression~(GPR), with independent training, 
+    validation, and evaluation modules enabling modular testing and collaborative extension
+    \item Integrated into SXS collaboration's surrogate modeling infrastructure 
+    and \texttt{gwsurrogate} package, enabling seamless deployment in Bayesian inference 
+    workflows
+    \item Released production model with comprehensive documentation and Jupyter tutorial notebooks; 
+    in active use by multiple research groups for intermediate mass-ratio binary analysis
+    \item Links: \href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate}{BHPTNRSurrogate} 
+    | \href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate/blob/main/tutorials/BHPTNRSur2dq1e3.ipynb}{Tutorial}
+  \end{highlights}
+\end{onecolentry}
+
+\vspace{0.4 cm}
+
+\begin{onecolentry}
+  \textbf{SEOBNRv4CE: Waveform Model with Uncertainty Quantification} \hfill 
+  \textit{June 2023 - March 2025}
+  
+  \textit{Primary Developer | Python}
+  \begin{highlights}
+    \item Developed effective-one-body gravitational waveform model incorporating calibration 
+    uncertainties using GPR for conservative parameter estimation
+    \item Implemented frequency-domain amplitude and phase deviation model at 10 
+    logarithmically-spaced nodes, interpolated via cubic splines for efficient waveform evaluation
+    \item Integrated into \texttt{bilby} Bayesian inference pipeline for production-ready 
+    parameter estimation workflows
+    \item Validated on simulated gravitational wave injections in Advanced LIGO detector noise, 
+    demonstrating robust uncertainty quantification and reduced systematic biases at high SNR
+    \item Engineered pip-installable package with comprehensive documentation and tutorial notebooks
+    \item Links: \href{https://github.com/riteshbachhar/SEOBNRv4CE}{SEOBNRv4CE} | 
+    \href{https://github.com/riteshbachhar/SEOBNRv4CE/blob/main/tutorial/SEOBNRv4CE.ipynb}{Tutorial}
+  \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+% ---- Research Experience ----
+\section{Research Experience}
+
+\begin{onecolentry}
+  \textbf{Graduate Research Assistant} \hfill \textit{September 2022 - Present}\\
+  \textit{Department of Physics, URI}
+  
+  \vspace{0.1 cm}
+
+  \textit{Surrogate Modeling of Black Hole Perturbation Theory Waveforms:}
+  \begin{highlights}
+    \item Developing efficient and accurate waveform models for intermediate mass-ratio 
+    binary black holes, critical for next-generation gravitational wave detectors
+    \item Integrated numerical relativity information into BHPT framework to model 
+    gravitational waves for binary black holes across wide range of mass ratios and spin 
+    configurations
+    \item Built scalable HPC workflows for large-scale surrogate model training, optimizing 
+    performance across distributed systems
+    \item Collaborating with SXS (Simulating eXtreme Spacetimes) collaboration on surrogate 
+    modeling efforts
+  \end{highlights}
+
+  \vspace{0.2 cm}
+
+  \textit{Waveform Systematics Research:}
+  \begin{highlights}
+    \item Investigating systematic biases in gravitational wave parameter estimation arising 
+    from imperfect waveform calibration against numerical relativity simulations
+    \item Developed probabilistic waveform framework that models calibration uncertainty 
+    distributions at numerical relativity calibration points, preventing overconfident 
+    parameter estimates from systematic errors
+    \item Demonstrated on simulated signals in realistic detector noise that uncertainty-aware 
+    analysis maintains statistical reliability while acknowledging modeling limitations, 
+    reducing normalized biases by factor of $~1.5$ for spinning binary black hole configurations
+  \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Research Computing Facilitator Trainee (NSF CAREER)} \hfill\textit{Summer 2022}\\
+  \textit{Center for Research Computing, Yale University}
+
+  \begin{highlights}
+    \item Supported researchers in adopting ML and data processing workflows on MGHPCC Unity 
+    HPC infrastructure
+    \item Engineered NLP pipeline processing 5.8M Wikipedia articles: 
+        distributed batch processing (10K articles/batch), XML-JSON conversion, and 
+        text extraction using Gensim and Spacy
+    \item Trained GloVe word embedding model on processed corpus, achieving 
+        80\% accuracy on standard word analogy benchmarks
+  \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+% ---------- Teaching Experience ----------
+\section{Teaching Experience}
+\begin{onecolentry}
+    \begin{highlightsforbulletentries}
+      \item TA for Elementary Physics II (Fall 2023)
+      \begin{itemize}
+        \item Assisted students with homework assignments and exam preparation by providing guidance and support to 
+        strengthen their understanding of the subject matter.
+      \end{itemize}
+
+      \item TA for AST 108 and AST 118H, introduction to astronomy (Fall 2021 - Spring 2022)
+      \begin{itemize}
+        \item Conducted interactive sessions to clarify doubts and reinforce understanding of the course material.
+        \item Organized both telescope-assisted and unaided observation sessions to guide students in identifying 
+        celestial objects, including planets, stars, and constellations.
+      \end{itemize}   
+    \end{highlightsforbulletentries}
+\end{onecolentry}
+
+% ---- Publications ----
+\section{Publications}
+
+\begin{enumerate}
+    \item \publication{Incorporating waveform calibration error in gravitational-wave modeling and inference for SEOBNRv4}
+            {\textbf{Ritesh Bachhar}, Michael Pürrer, Stephen R. Green}
+            {arXiv:2410.17168, October 2024}
+            {https://arxiv.org/abs/2410.17168}
+
+    \item \publication{Gravitational wave surrogate model for spinning, intermediate mass ratio binaries based on perturbation theory and numerical relativity}
+          {Katie Rink, \textbf{Ritesh Bachhar}, Tousif Islam \textit{et al.}}
+          {Physical Review D 110, 124069, December 2024}
+          {https://journals.aps.org/prd/abstract/10.1103/PhysRevD.110.124069}
+
+    \item \publication{Angular Momentum for Black Hole Binaries in Numerical Relativity}
+            {\textbf{Ritesh Bachhar}, Richard Price, Gaurav Khanna}
+            {Physical Review D 108, 064019, September 2023}
+            {https://journals.aps.org/prd/abstract/10.1103/PhysRevD.108.064019}
+
+    \item \publication{Timing and spectral studies of Cen X-3 in multiple luminosity states using AstroSat}
+          {\textbf{Ritesh Bachhar}, Gayathri Raman, Varun Bhalerao \textit{et al.}}
+          {Monthly Notices of the Royal Astronomical Society, 517, 4138, October 2022}
+          {https://academic.oup.com/mnras/article/517/3/4138/6760011}
+\end{enumerate}
+
+\vspace{0.2 cm}
+
+% ---- Awards ----
+\section{Awards \& Funding}
+
+\begin{onecolentry}
+  \begin{highlightsforbulletentries}
+    \item \textbf{Dean's Fellowship}, University of Rhode Island (2024-2025) - Recognized for academic achievements and scholarly potential
+    \item \textbf{NASA Travel Grant} (\$1,500, 2024) - Funded travel to 15th LISA Symposium, Dublin, Ireland for presenting research on gravitational wave modeling
+    \item \textbf{Bhavesh Gandhi Memorial Prize} (2020), IIT Bombay - Best M.Sc. thesis award
+  \end{highlightsforbulletentries}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+% ---- Professional Activities ----
+\section{Professional Activities \& Community Engagement}
+
+\begin{onecolentry}
+  \begin{highlightsforbulletentries}
+    \item \textbf{Conference Presentations:} Delivered talks at American Physical Society April Meetings (2023, 2024), 
+    Eastern Gravity Meeting (2023), University of Glasgow Student Seminar (2024), 
+    and Brown University IDEA Symposium (2024) on software tools for gravitational wave analysis
+        
+    \item \textbf{Teaching \& Mentorship:} Teaching Assistant for physics and astronomy courses (2021-2023); 
+    mentored undergraduate students in computational methods and Python programming
+    
+    \item \textbf{Deep Learning Bootcamp Certificate} (Fall 2025), The Erd\H{o}s Institute - 
+    completed intensive program in applied machine learning; capstone project on 
+    Graph Neural Networks for fraud detection in 9.5M financial transaction network,
+    achieving 0.84 PR-AUC; selected as \textbf{top project}
+
+    \item \textbf{Memberships:} LISA Consortium (Waveform WG), American Physical Society (APS), 
+    Simulating eXtreme Spacetimes (SXS) Collaboration
+  \end{highlightsforbulletentries}
+\end{onecolentry}
+
+\end{document}
