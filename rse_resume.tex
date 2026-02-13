@@ -116,7 +116,7 @@
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {University of Rhode Island}{Aug. 2021 -- May 2026}
+      {University of Rhode Island}{August 2021 -- May 2026}
       {PhD, Physics $|$ GPA: 3.99/4.00 $|$ Dean's Fellowship (2024 - 2025)}{Kingston, RI}
       \resumeItemListStart
         % \resumeItem{Dissertation: Advancing Gravitational Wave Modeling - 
@@ -126,7 +126,7 @@
         \href{https://arxiv.org/abs/2410.17168}{\underline{2410.17168}})}
       \resumeItemListEnd
     \resumeSubheading
-      {Indian Institute of Technology Bombay}{Aug. 2018 -- June 2020}
+      {Indian Institute of Technology Bombay}{August 2018 -- June 2020}
       {M.Sc. Physics $|$ GPA: 3.67/4.00}{Mumbai, India}
       \resumeItemListStart
         \resumeItem{Award: Bhavesh Gandhi Memorial Prize for Best M.Sc. Thesis in Physics (2020)}
@@ -140,7 +140,7 @@
      \textbf{Programming}{:  Python (7+ years), C, Bash, MATLAB, TeX, Mathematica} \\
      \textbf{HPC \& Computing}{: MGHPCC Unity, Slurm, GPU acceleration (PyTorch, CuPy), parallel computing (MPI), Nsight} \\
      \textbf{Machine Learning:}{: PyTorch, Graph Neural Networks, Gaussian Process Regression, Bayesian inference} \\
-     \textbf{Software Development}{: Git/GitHub, CI/CD, testing (pytest)}
+     \textbf{Software Development}{: Git/GitHub, GitHub Actions CI/CD, testing (pytest)}
     }}
  \end{itemize}
 
@@ -153,14 +153,24 @@
       {Research Assistant}{August 2022 -- Present}
       {University of Rhode Island}{}
       \resumeItemListStart
-        \resumeItem{Developed production-quality gravitation wave~(GW) models integrated into community frameworks 
-        (\texttt{gwsurrogate}, SXS collaboration) achieving $10^6\times$ performance speedups with $<10^{-5}$ relative error}
-        \resumeItem{Built scalable HPC workflows for large-scale model training across distributed systems, 
-        optimizing performance on MGHPCC Unity infrastructure}
-        \resumeItem{Implemented numerical model for GW incorporating calibration uncertainties using 
-        Gaussian Process Regression~(GPR) for conservative parameter estimation}
-        \resumeItem{Research expertise in surrogate modeling, uncertainty quantification, and Bayesian inference for 
-        GW analysis}
+        % \resumeItem{Developed production-quality gravitation wave~(GW) models integrated into community frameworks 
+        % (\texttt{gwsurrogate}, SXS collaboration) achieving $10^6\times$ performance speedups with $<10^{-5}$ 
+        % relative error}
+        \resumeItem{Build pip-installable numerical modeling libraries 
+        (\href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate}{\underline{\texttt{BHPTNRSur2dq1e3}}},
+        \href{https://github.com/riteshbachhar/SEOBNRv4CE}{\underline{\texttt{SEOBNRv4CE}}}) 
+        achieving $10^6 \times$ speedup with $<10^{-5}$ relative error, authored documentation and 
+        tutorial notebooks enabling adoption by multiple research groups}
+        % \resumeItem{Built scalable HPC workflows for large-scale model training across distributed systems, 
+        % optimizing performance on MGHPCC Unity infrastructure}
+        \resumeItem{Engineered distributed HPC workflows on MGHPCC Unity~(Slurm, MPI) for large-scale model
+        training, optimized memory usage and parallelization across multiple cores}
+        % \resumeItem{Implemented numerical model for GW incorporating calibration uncertainties using 
+        % Gaussian Process Regression~(GPR) for conservative parameter estimation}
+        \resumeItem{Developed uncertainty quantification framework using Gaussian Process Regression~(GPR),
+        integrated into Bayesian inference pipelines for production analysis workflows}
+        % \resumeItem{Research expertise in surrogate modeling, uncertainty quantification, and Bayesian inference for 
+        % GW analysis}
         % \resumeItem{Mentored students in computational modeling and HPC workflows}
       \resumeItemListEnd
       
