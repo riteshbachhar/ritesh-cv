@@ -3,10 +3,10 @@
 % --------- Packages --------
 \usepackage[
     ignoreheadfoot,
-    top=2 cm,
-    bottom=2 cm,
-    left=2 cm,
-    right=2 cm,
+    top=1.5 cm,
+    bottom=1.7 cm,
+    left=1.7 cm,
+    right=1.7 cm,
     footskip=1.0 cm,
 ]{geometry}
 
@@ -199,20 +199,21 @@
 
 \vspace{0.3 cm}
 
-% ---- Professional Summary ----
-% \section{Research Software Engineering Philosophy}
+% % ---- Professional Summary ----
+% \section{Summary}
 % \begin{onecolentry}
-% Building sustainable, well-tested research software that bridges theoretical physics with 
-% computational infrastructure. I develop production-quality tools that enable reproducible 
-% science across gravitational wave astrophysics, emphasizing correctness through rigorous validation, 
-% modular architecture, and community-driven development practices.
+% PhD candidate with production experience in research software engineering for gravitational wave astrophysics. 
+% I build scalable data infrastructure, REST APIs, and well-tested scientific software packages adopted by 
+% international research collaborations. Strong background in Python, PostgreSQL, HPC, and deploying 
+% community-driven tools with CI/CD, automated testing, and comprehensive documentation following FAIR 
+% and open science principles.
 % \end{onecolentry}
 
 % ---- Education ----
 \section{Education}
 
 \begin{threecolentry}{\textbf{Ph.D. Physics}}{
-    September 2021 - May 2025 (Expected)
+    September 2021 - May 2026 (Expected)
   }
     University of Rhode Island, Kingston, RI
   \begin{highlights}
@@ -232,7 +233,8 @@
   \begin{highlights}
     \item Thesis: Phase-resolved analysis of Centaurus X-3 using AstroSat
     \item GPA: 9.17/10.00
-    \item Bhavesh Gandhi Memorial Prize for Best M.Sc. Thesis (2020)
+    \item Bhavesh Gandhi Memorial Prize for outstanding performance in 
+          M.Sc. Physics (2020)
   \end{highlights}
 \end{threecolentry} 
 
@@ -244,52 +246,9 @@
   Scottish Church College, Kolkata, India
 \end{threecolentry}
 
-\vspace{0.2 cm}
 
-% ---- Technical Expertise ----
-\section{Technical Skills}
-
-\begin{onecolentry}
-  \textbf{Programming Languages:} Python (7+ years), LaTeX, C, Bash, MATLAB, Fortran
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Machine Learning:} PyTorch, Gaussian Process Regression (GPR), Graph Neural Networks (GNNs), fastai
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{High-Performance Computing:} MGHPCC Unity, Slurm workflow orchestration, Parallel computing~(MPI, joblib), 
-  GPU acceleration~(PyTorch, CuPy)
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Software Engineering:} Version control~(Git/GitHub), GitHub Actions~(CI/CD),  
-  comprehensive documentation, pytest, Apptainer
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Data Analysis \& ML:} Bayesian inference pipelines, Gaussian process regression, SVD-based dimensionality reduction, uncertainty quantification, PyTorch for deep learning applications
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Gravitational Wave Software:} \texttt{gwsurrogate}, \texttt{bilby}, \texttt{LALSuite}, 
-  \texttt{GWTools}
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-% ---- Software Packages & Tools ----
-\section{Software Packages \& Tools}
+% ---- Research Software & Models ----
+\section{Research Software \& Models}
 
 \begin{onecolentry}
   \textbf{BHPTNRSur2dq1e3: Black Hole Perturbation Theory Surrogate Model} \hfill 
@@ -299,22 +258,27 @@
   \begin{highlights}
     \item Developed Black Hole Perturbation Theory (BHPT) surrogate model for gravitational 
     waveforms across 2D parameter space (mass ratio $q \in [3-1000]$, spin $\chi_1 \in [-0.6, 0.8]$)
+
     \item Achieved $10^6\times$ speedup over numerical simulations with relative L2 error $<10^{-5}$, 
-    enabling fast evaluation of intermediate mass-ratio binaries
+    enabling fast waveform evaluation of intermediate mass-ratio binaries
+
     \item Engineered modular pipeline using SVD-based dimensionality reduction, 
     empirical interpolation, and Gaussian process regression~(GPR), with independent training, 
     validation, and evaluation modules enabling modular testing and collaborative extension
+
     \item Integrated into SXS collaboration's surrogate modeling infrastructure 
     and \texttt{gwsurrogate} package, enabling seamless deployment in Bayesian inference 
     workflows
+
     \item Released production model with comprehensive documentation and Jupyter tutorial notebooks; 
     in active use by multiple research groups for intermediate mass-ratio binary analysis
+
     \item Links: \href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate}{BHPTNRSurrogate} 
     | \href{https://github.com/BlackHolePerturbationToolkit/BHPTNRSurrogate/blob/main/tutorials/BHPTNRSur2dq1e3.ipynb}{Tutorial}
   \end{highlights}
 \end{onecolentry}
 
-\vspace{0.4 cm}
+\vspace{0.2 cm}
 
 \begin{onecolentry}
   \textbf{SEOBNRv4CE: Waveform Model with Uncertainty Quantification} \hfill 
@@ -322,7 +286,7 @@
   
   \textit{Primary Developer | Python}
   \begin{highlights}
-    \item Developed effective-one-body gravitational waveform model incorporating calibration 
+    \item Developed probabilistic surrogate model incorporating calibration 
     uncertainties using GPR for conservative parameter estimation
     \item Implemented frequency-domain amplitude and phase deviation model at 10 
     logarithmically-spaced nodes, interpolated via cubic splines for efficient waveform evaluation
@@ -338,40 +302,58 @@
 
 \vspace{0.2 cm}
 
+\begin{onecolentry}
+  \textbf{GW Galaxy Catalogue REST API} \hfill 
+  \textit{Jan 2025}
+  
+  \textit{Developer | Python, FastAPI, PostgreSQL, PostGIS}
+  \begin{highlights}
+    \item Built REST API serving ${\sim}$100K galaxies from GLADE+ catalogue with spatial cone search (PostGIS), 
+    redshift and luminosity distance filtering, and paginated queries using FastAPI and SQLAlchemy
+    \item Designed PostgreSQL schema with PostGIS geometry column for sky-coordinate queries; 
+    implemented data ingestion pipeline for VizieR catalogue exports with validation and null handling
+    \item Wrote 29 automated tests (pytest) covering endpoint functionality, input validation, 
+    pagination, and edge cases; structured codebase with modular ORM models, Pydantic schemas, and routed endpoints
+    \item Links: \href{https://github.com/riteshbachhar/GalaxyCatelog}{GalaxyCatelog}
+  \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Temporal-GNNs for Anti-Money Laundering Detection} \hfill 
+  \textit{August 2025 - November 2025}
+  
+  \textit{Primary Developer | PyTorch}
+  \begin{highlights}
+    \item Developed a Temporal GNN-based fraud detection system to identify money laundering 
+          patterns across 9.5M-transaction network, identifying behavioral anomalies and suspicious 
+          patterns
+    \item Achieved 0.84 PR-AUC on highly imbalanced data (0.15\% positive rate), 
+          outperforming XGBoost by 41\% through graph-based neural network and feature engineering
+    \item Optimized model for business constraints: 85\% recall at 80\% precision, balancing 
+          false positive costs with detection coverage
+    \item Selected as top project by The Erd\H{o}s Institute \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{Deep Learning Bootcamp}} | 
+          Project link: \href{https://github.com/riteshbachhar/AML-detection-using-AI}{AML-detection-using-AI}
+  \end{highlights}
+\end{onecolentry}
+
+
+
 % ---- Research Experience ----
 \section{Research Experience}
 
 \begin{onecolentry}
   \textbf{Graduate Research Assistant} \hfill \textit{September 2022 - Present}\\
-  \textit{Department of Physics, URI}
+  \textit{Department of Physics, University of Rhode Island}
   
-  \vspace{0.1 cm}
-
-  \textit{Surrogate Modeling of Black Hole Perturbation Theory Waveforms:}
   \begin{highlights}
-    \item Developing efficient and accurate waveform models for intermediate mass-ratio 
-    binary black holes, critical for next-generation gravitational wave detectors
-    \item Integrated numerical relativity information into BHPT framework to model 
-    gravitational waves for binary black holes across wide range of mass ratios and spin 
-    configurations
-    \item Built scalable HPC workflows for large-scale surrogate model training, optimizing 
-    performance across distributed systems
-    \item Collaborating with SXS (Simulating eXtreme Spacetimes) collaboration on surrogate 
-    modeling efforts
-  \end{highlights}
-
-  \vspace{0.2 cm}
-
-  \textit{Waveform Systematics Research:}
-  \begin{highlights}
-    \item Investigating systematic biases in gravitational wave parameter estimation arising 
-    from imperfect waveform calibration against numerical relativity simulations
-    \item Developed probabilistic waveform framework that models calibration uncertainty 
-    distributions at numerical relativity calibration points, preventing overconfident 
-    parameter estimates from systematic errors
-    \item Demonstrated on simulated signals in realistic detector noise that uncertainty-aware 
-    analysis maintains statistical reliability while acknowledging modeling limitations, 
-    reducing normalized biases by factor of $~1.5$ for spinning binary black hole configurations
+    \item Developing efficient gravitational waveform models for intermediate mass-ratio 
+    binary black holes, critical for next-generation detectors (LISA)
+    \item Built scalable HPC workflows for large-scale model training across distributed systems 
+    (MGHPCC Unity, Slurm, MPI), optimizing parallel performance for computationally intensive pipelines
+    \item Investigating systematic biases in parameter estimation; developed probabilistic framework 
+    reducing normalized biases by factor of ${\sim}1.5$ for spinning binary configurations
   \end{highlights}
 \end{onecolentry}
 
@@ -384,34 +366,79 @@
   \begin{highlights}
     \item Supported researchers in adopting ML and data processing workflows on MGHPCC Unity 
     HPC infrastructure
-    \item Engineered NLP pipeline processing 5.8M Wikipedia articles: 
-        distributed batch processing (10K articles/batch), XML-JSON conversion, and 
+    \item Engineered distributed NLP pipeline processing 5.8M Wikipedia articles: 
+        batch processing (10K articles/batch), XML-JSON conversion, and 
         text extraction using Gensim and Spacy
     \item Trained GloVe word embedding model on processed corpus, achieving 
         80\% accuracy on standard word analogy benchmarks
   \end{highlights}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+
 
 % ---------- Teaching Experience ----------
-\section{Teaching Experience}
+\section{Teaching \& User Support}
 \begin{onecolentry}
     \begin{highlightsforbulletentries}
-      \item TA for Elementary Physics II (Fall 2023)
-      \begin{itemize}
-        \item Assisted students with homework assignments and exam preparation by providing guidance and support to 
-        strengthen their understanding of the subject matter.
-      \end{itemize}
-
-      \item TA for AST 108 and AST 118H, introduction to astronomy (Fall 2021 - Spring 2022)
-      \begin{itemize}
-        \item Conducted interactive sessions to clarify doubts and reinforce understanding of the course material.
-        \item Organized both telescope-assisted and unaided observation sessions to guide students in identifying 
-        celestial objects, including planets, stars, and constellations.
-      \end{itemize}   
+      \item \textbf{Teaching Assistant}, University of Rhode Island (2021--2023): Elementary Physics II, 
+      Introduction to Astronomy (AST 108, AST 118H); conducted interactive sessions, organized observation workshops, 
+      and provided one-on-one guidance to students
+      \item \textbf{Undergraduate Research Mentorship:} Guided two undergraduate students in computational methods 
+      and Python programming for scientific research
     \end{highlightsforbulletentries}
 \end{onecolentry}
+
+
+
+% ---- Technical Expertise ----
+\section{Technical Skills}
+
+\begin{onecolentry}
+  \textbf{Programming Languages:} Python (7+ years), SQL, Bash, LaTeX, C, MATLAB, Fortran
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Data Infrastructure \& APIs:} PostgreSQL, PostGIS, FastAPI, SQLAlchemy, REST API development, 
+  data ingestion pipelines, Pydantic
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Software Engineering:} Git/GitHub, CI/CD~(GitHub Actions), automated testing~(pytest), 
+  pip packaging, technical documentation, code review
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{High-Performance Computing:} MGHPCC Unity, Slurm orchestration, Parallel computing~(MPI, joblib), 
+  GPU acceleration~(PyTorch, CuPy)
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Machine Learning:} Gaussian Process Regression~(GPR), Graph Neural Networks~(GNNs), PyTorch, Scikit-learn, 
+  XGBoost, NLP~(Gensim, SpaCy)
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Surrogate Modeling \& UQ:} SVD-based dimensionality reduction, 
+  Empirical Interpolation Method~(EIM), Greedy algorithms, Probabilistic Surrogate Modeling, Bayesian Inference
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Gravitational Wave Software:} \texttt{gwsurrogate}, \texttt{bilby}, \texttt{LALSuite}, 
+  \texttt{GWTools}
+\end{onecolentry}
+
 
 % ---- Publications ----
 \section{Publications}
@@ -427,6 +454,11 @@
           {Physical Review D 110, 124069, December 2024}
           {https://journals.aps.org/prd/abstract/10.1103/PhysRevD.110.124069}
 
+    \item \publication{Binary Black Hole Coalescence Phenomenology from Numerical Relativity}
+          {Richard Price, \textbf{Ritesh Bachhar}, Gaurav Khanna}
+          {arXiv:2312.15885, Dec 2023}
+          {https://arxiv.org/abs/2312.15885}
+
     \item \publication{Angular Momentum for Black Hole Binaries in Numerical Relativity}
             {\textbf{Ritesh Bachhar}, Richard Price, Gaurav Khanna}
             {Physical Review D 108, 064019, September 2023}
@@ -438,7 +470,7 @@
           {https://academic.oup.com/mnras/article/517/3/4138/6760011}
 \end{enumerate}
 
-\vspace{0.2 cm}
+
 
 % ---- Awards ----
 \section{Awards \& Funding}
@@ -451,10 +483,10 @@
   \end{highlightsforbulletentries}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+
 
 % ---- Professional Activities ----
-\section{Professional Activities \& Community Engagement}
+\section{Professional Activities}
 
 \begin{onecolentry}
   \begin{highlightsforbulletentries}
@@ -462,15 +494,7 @@
     Eastern Gravity Meeting (2023), University of Glasgow Student Seminar (2024), 
     and Brown University IDEA Symposium (2024) on software tools for gravitational wave analysis
         
-    \item \textbf{Teaching \& Mentorship:} Teaching Assistant for physics and astronomy courses (2021-2023); 
-    mentored undergraduate students in computational methods and Python programming
-    
-    \item \textbf{Deep Learning Bootcamp Certificate} (Fall 2025), The Erd\H{o}s Institute - 
-    completed intensive program in applied machine learning; capstone project on 
-    Graph Neural Networks for fraud detection in 9.5M financial transaction network,
-    achieving 0.84 PR-AUC; selected as \textbf{top project}
-
-    \item \textbf{Memberships:} LISA Consortium (Waveform WG), American Physical Society (APS), 
+    \item \textbf{Memberships:} LISA Consortium, American Physical Society (APS), 
     Simulating eXtreme Spacetimes (SXS) Collaboration
   \end{highlightsforbulletentries}
 \end{onecolentry}
