@@ -1,7 +1,15 @@
 \documentclass[letterpaper,11pt]{article}
+\usepackage[
+    ignoreheadfoot,
+    top=1.2 cm,
+    bottom=1 cm,
+    left=1 cm,
+    right=1 cm,
+    footskip=0.8 cm,
+]{geometry}
+
 
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
@@ -11,33 +19,16 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-% \input{glyphtounicode} % For PDF unicode characters
 
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
+% Add space after each item globally
+\setlist[itemize]{itemsep=1pt}
 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
 
@@ -45,19 +36,15 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
 \titleformat{\section}{
-  \vspace{-10pt}\scshape\raggedright\large
+  \vspace{-5pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
-% \pdfgentounicode=1
 
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[1]{
   \item\small{
-    {#1 \vspace{-2pt}}
+    {#1 \vspace{-3pt}}
   }
 }
 
@@ -66,44 +53,37 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-14pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-10pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-10pt}
 }
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.1in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}\vspace{5pt}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{document}
 
 %----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
 \begin{center}
     \textbf{\Huge Ritesh Bachhar} \\ \vspace{1pt}
     \small +1-(401)-212-2669 $|$ \href{mailto:riteshbachhar@gmail.com}{\underline{riteshbachhar@gmail.com}} $|$ 
@@ -119,8 +99,6 @@
       {University of Rhode Island}{August 2021 -- May 2026}
       {PhD, Physics $|$ GPA: 3.99/4.00 $|$ Dean's Fellowship (2024 - 2025)}{Kingston, RI}
       \resumeItemListStart
-        % \resumeItem{Dissertation: Advancing Gravitational Wave Modeling - 
-        % Expanding Parameter Space and Quantifying Uncertainty}
         \resumeItem{Selected peer reviewed publications on numerical modeling 
         (arXiv: \href{https://arxiv.org/abs/2407.18319}{\underline{2407.18319}}, 
         \href{https://arxiv.org/abs/2410.17168}{\underline{2410.17168}})}
@@ -135,12 +113,13 @@
 
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
+ \begin{itemize}[leftmargin=0.1in, label={}]
     \small{\item{
-     \textbf{Programming}{:  Python (7+ years), Bash, SQL, Fortran C, MATLAB, TeX, Mathematica} \\
-     \textbf{HPC \& Computing}{: MGHPCC Unity, Slurm, GPU acceleration (PyTorch, CuPy), parallel computing (MPI), Linux/Ubuntu} \\
-     \textbf{Machine Learning}{: PyTorch, Graph Neural Networks, Gaussian Process Regression, Bayesian inference} \\
-     \textbf{Software Development}{: Git/GitHub, GitHub Actions CI/CD, testing (pytest), Claude Code}
+     \textbf{Programming}{: Python (7+ years), SQL, \LaTeX, Bash, C, Fortran, MATLAB} \\
+     \textbf{Software Engineering}{: Git/GitHub, GitHub Actions CI/CD, automated testing (pytest), pip packaging, code review, technical documentation} \\
+     \textbf{Data Infrastructure}{: PostgreSQL, PostGIS, FastAPI, SQLAlchemy, REST API development, Pydantic} \\
+     \textbf{HPC \& Distributed Computing}{: MGHPCC Unity, Slurm, parallel computing (MPI, joblib), GPU acceleration (PyTorch, CuPy), batch workflow design, Linux/Ubuntu} \\
+     \textbf{Scientific Computing \& ML}{: Time-series modeling, PyTorch, Graph Neural Networks, XGBoost, Scikit-learn, Gaussian Process Regression, Bayesian inference, NLP (Gensim, SpaCy)}
     }}
  \end{itemize}
 
@@ -153,58 +132,29 @@
       {Research Assistant}{August 2022 -- Present}
       {University of Rhode Island}{}
       \resumeItemListStart
-        % \resumeItem{Developed production-quality gravitation wave~(GW) models integrated into community frameworks 
-        % (\texttt{gwsurrogate}, SXS collaboration) achieving $10^6\times$ performance speedups with $<10^{-5}$ 
-        % relative error}
-        \resumeItem{Built pip-installable numerical modeling libraries 
+        \resumeItem{Built pip-installable scientific software packages 
         (\href{https://github.com/riteshbachhar/BHPTNRSurrogate/tree/feature/infra-update}{\underline{\texttt{BHPTNRSur2dq1e3}}},
         \href{https://github.com/riteshbachhar/SEOBNRv4CE}{\underline{\texttt{SEOBNRv4CE}}}) 
         achieving $10^6 \times$ speedup with $<10^{-5}$ relative error; implemented GitHub Actions CI/CD, 
         pytest suite, and tutorial notebooks enabling adoption by 3+ research groups}
-        % \resumeItem{Built scalable HPC workflows for large-scale model training across distributed systems, 
-        % optimizing performance on MGHPCC Unity infrastructure}
         \resumeItem{Engineered distributed HPC workflows on MGHPCC Unity~(Slurm, MPI) for large-scale model
-        training, optimized memory usage and parallelization across multiple cores}
-        % \resumeItem{Implemented numerical model for GW incorporating calibration uncertainties using 
-        % Gaussian Process Regression~(GPR) for conservative parameter estimation}
+        training, optimized memory usage and parallelization across GPU and CPU clusters}
         \resumeItem{Developed uncertainty quantification framework using Gaussian Process Regression~(GPR),
         integrated into Bayesian inference pipelines for production analysis workflows}
-        % \resumeItem{Research expertise in surrogate modeling, uncertainty quantification, and Bayesian inference for 
-        % GW analysis}
-        % \resumeItem{Mentored students in computational modeling and HPC workflows}
+        \resumeItem{Mentored two undergraduate students in computational methods and Python programming 
+        for scientific research}
       \resumeItemListEnd
-      
-% -----------Multiple Positions Heading-----------
-  %  \resumeSubSubheading
-  %   {Software Engineer I}{Oct 2014 - Sep 2016}
-  %   \resumeItemListStart
-  %      \resumeItem{Apache Beam}
-  %        {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-  %   \resumeItemListEnd
-  %  \resumeSubHeadingListEnd
-%-------------------------------------------
 
     \resumeSubheading
-      {Research Computing Facilitator trainee (NSF CAREERS)}{May 2022 - August 2022}
+      {Research Computing Facilitator Trainee (NSF CAREER)}{May 2022 -- August 2022}
       {Yale University}{}
       \resumeItemListStart
-        \resumeItem{Engineered NLP pipeline processing 5.8M Wikipedia articles on MGHPCC Unity 
-        cluster; implemented distributed batch processing, XML-JSON conversion, and text extraction 
+        \resumeItem{Engineered distributed NLP pipeline processing 5.8M Wikipedia articles on HPC 
+        cluster; implemented batch processing (10K articles/batch), XML-JSON conversion, and text extraction 
         using Gensim and SpaCy}
         \resumeItem{Trained GloVe word embedding model on processed corpus, achieving 
         80\% accuracy on standard word analogy benchmarks}
-
     \resumeItemListEnd
-
-    \resumeSubheading
-      {Teaching Assistant}{August 2021 -- May 2022}
-      {University of Rhode Island}{}
-      \resumeItemListStart
-        \resumeItem{Conducted interactive sessions and provided one-on-one guidance to strengthen student
-        understanding of course material}
-        \resumeItem{Organized hands-on observation workshops guiding students through practical techniques
-        and data interpretation}
-      \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
@@ -212,42 +162,40 @@
 %-----------PROJECTS-----------
 \section{Projects \& Software Development}
     \resumeSubHeadingListStart
+
       \resumeProjectHeading
-          {\textbf{Anti-Money Laundering Detection with Temporal-GNNs} $|$ \emph{PyTorch, GNNs}}{Fall 2025}
+          {\textbf{GW Galaxy Catalogue REST API} $|$ \emph{Python, FastAPI, PostgreSQL, PostGIS}}{January 2025}
           \resumeItemListStart
-            \resumeItem{Developed a Temporal GNN-based fraud detection system to identify money laundering 
-            patterns and behavioral anomalies across a 9.5M-transaction network}
-            \resumeItem{Achieved 0.84 PR-AUC on highly imbalanced data (0.15\% positive rate), 
-            outperforming XGBoost by 41\%}
-            \resumeItem{Optimized model for business constraints—85\% recall at 80\% precision, 
-            selected as \textbf{top project} by The Erd\H{o}s Institute}
+            \resumeItem{Built REST API serving ${\sim}$100K galaxies with spatial cone 
+            search (PostGIS), redshift and distance filtering, and paginated queries using 
+            FastAPI and SQLAlchemy; designed PostgreSQL schema with PostGIS spatial indexing}
+            \resumeItem{Wrote 29 automated tests (pytest) covering endpoints, validation, 
+            and edge cases; structured codebase with modular ORM models, Pydantic schemas, 
+            and routed endpoints}
           \resumeItemListEnd
 
-      % \resumeProjectHeading
-      %     {\textbf{Gravitational Wave Modeling} $|$ \emph{Python, Jupyter, HPC}}{September 2022 -- Present}
-      %     \resumeItemListStart
-      %       \resumeItem{Developed two production-quality GW models: \texttt{BHPTNRSur2dq1e3} (surrogate) and 
-      %       \texttt{SEOBNRv4CE} (uncertainty-aware), both integrated into community frameworks}
-      %       \resumeItem{Engineered modular software architectures enabling collaborative extension, 
-      %       with, documentation, and tutorial notebooks for research community adoption}
-      %     \resumeItemListEnd
-    \resumeSubHeadingListEnd
+      \resumeProjectHeading
+          {\textbf{Anti-Money Laundering Detection with Temporal GNNs} $|$ \emph{PyTorch, GNNs}}{Fall 2025}
+          \resumeItemListStart
+            \resumeItem{Developed Temporal GNN-based fraud detection system across a 9.5M-transaction network;
+            achieved 0.84 PR-AUC on highly imbalanced data (0.15\% positive rate), 
+            outperforming XGBoost by 41\%}
+            \resumeItem{Optimized model for business constraints---85\% recall at 80\% precision; 
+            selected as \textbf{top project} by The Erd\H{o}s Institute Deep Learning Bootcamp}
+          \resumeItemListEnd
 
+    \resumeSubHeadingListEnd
 
 
 %-----------AWARDS & HONORS-----------
 \section{Awards \& Professional Development}
-  \begin{itemize}[leftmargin=0.15in,  parsep=0pt, itemsep=2pt]
-      \item \textbf{NASA Travel Grant} (\$1,500, 2024) - to attend the space-borne telescope, LISA Symposium, Dublin, Ireland
-      \item \textbf{Deep Learning Bootcamp Certificate},
-      \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{The Erd\H{o}s Institute (2025)}}
-      \item \textbf{Dean's Fellowship}, University of Rhode Island (2024-2025) for academic excellence and research potential
-      \item \textbf{Undergraduate Research Mentorship}: Guided two undergraduate students in computational methods and Python programming
-            for scientific research
-      \item \textbf{Professional memberships}: LISA Consortium, American Physical Society, SXS Collaboration
+  \begin{itemize}[leftmargin=0.1in, label={}]
+    \small{\item {\textbf{Deep Learning Bootcamp Certificate},
+      \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{The Erd\H{o}s Institute (2025)}} \\
+      \textbf{Dean's Fellowship}, University of Rhode Island (2024-2025) \\
+      \textbf{NASA Travel Grant} (\$1,500, 2024) -- LISA Symposium, Dublin \\
+      \textbf{Memberships}: LISA Consortium, American Physical Society, SXS Collaboration
+    }}
   \end{itemize}
 
-
-
-%-------------------------------------------
 \end{document}
