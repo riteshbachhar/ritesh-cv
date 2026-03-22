@@ -3,8 +3,8 @@
 % --------- Packages --------
 \usepackage[
     ignoreheadfoot,
-    top=1.5 cm,
-    bottom=1.7 cm,
+    top=1.3 cm,
+    bottom=1.5 cm,
     left=1.7 cm,
     right=1.7 cm,
     footskip=1.0 cm,
@@ -28,7 +28,6 @@
 \usepackage[pscoord]{eso-pic}
 \usepackage{calc}
 \usepackage{bookmark}
-\usepackage{lastpage}
 \usepackage{changepage}
 \usepackage{paracol}
 \usepackage{ifthen}
@@ -58,13 +57,7 @@
 \setlength{\columnsep}{0.15cm}
 
 % -------- Footer Customization --------
-\makeatletter
-\let\ps@customFooterStyle\ps@plain
-\patchcmd{\ps@customFooterStyle}{\thepage}{
-    \color{gray}\textit{\small Ritesh Bachhar - Page \thepage{} of \pageref*{LastPage}}
-}{}{}
-\makeatother
-\pagestyle{customFooterStyle}
+\pagestyle{empty}
 
 % -------- Section Title Formatting --------
 \titleformat{\section}{
@@ -199,15 +192,14 @@
 
 \vspace{0.3 cm}
 
-% % ---- Professional Summary ----
+% ---- Professional Summary ----
 % \section{Summary}
 % \begin{onecolentry}
-% PhD candidate with production experience in research software engineering for gravitational wave astrophysics. 
-% I build scalable data infrastructure, REST APIs, and well-tested scientific software packages adopted by 
-% international research collaborations. Strong background in Python, PostgreSQL, HPC, and deploying 
-% community-driven tools with CI/CD, automated testing, and comprehensive documentation following FAIR 
-% and open science principles.
+% PhD candidate with four years of research computing experience building production scientific software, 
+% engineering HPC workflows (Slurm, MPI, GPU), and consulting with researchers across institutions. 
+% Experienced in cross-domain ML applications, technical training, and community software development.
 % \end{onecolentry}
+
 
 % ---- Education ----
 \section{Education}
@@ -238,14 +230,62 @@
   \end{highlights}
 \end{threecolentry} 
 
+% \vspace{0.2 cm}
+
+% \begin{threecolentry}{\textbf{B.Sc. Physics}}{
+%   July 2014 - April 2017
+% }
+%   Scottish Church College, Kolkata, India
+% \end{threecolentry}
+
+% ---- Technical Expertise ----
+\section{Technical Skills}
+
+\begin{onecolentry}
+  \textbf{Programming Languages:} Python (7+ years), SQL, Bash, LaTeX, C, MATLAB, Fortran
+\end{onecolentry}
+
 \vspace{0.2 cm}
 
-\begin{threecolentry}{\textbf{B.Sc. Physics}}{
-  July 2014 - April 2017
-}
-  Scottish Church College, Kolkata, India
-\end{threecolentry}
+\begin{onecolentry}
+  \textbf{Data Infrastructure \& APIs:} PostgreSQL, PostGIS, FastAPI, SQLAlchemy, REST API development, 
+  data ingestion pipelines, Pydantic
+\end{onecolentry}
 
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Software Engineering:} Git/GitHub, CI/CD~(GitHub Actions), automated testing~(pytest), 
+  pip packaging, Anaconda/Conda, technical documentation, Apptainer containerization
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{High-Performance Computing:} MGHPCC Unity, Slurm orchestration, Parallel computing~(MPI, joblib), 
+  GPU acceleration~(PyTorch, CuPy)
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Machine Learning:} Gaussian Process Regression~(GPR), Graph Neural Networks~(GNNs), PyTorch, Scikit-learn, 
+  XGBoost, NLP~(Gensim, SpaCy)
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+  \textbf{Surrogate Modeling \& UQ:} SVD-based dimensionality reduction, 
+  Empirical Interpolation Method~(EIM), Greedy algorithms, Probabilistic Surrogate Modeling, Bayesian Inference
+\end{onecolentry}
+
+% \vspace{0.2 cm}
+
+% \begin{onecolentry}
+%   \textbf{Gravitational Wave Software:} \texttt{gwsurrogate}, \texttt{bilby}, \texttt{LALSuite}, 
+%   \texttt{GWTools}
+% \end{onecolentry}
 
 % ---- Research Software & Models ----
 \section{Research Software \& Models}
@@ -312,7 +352,7 @@
     redshift and luminosity distance filtering, and paginated queries using FastAPI and SQLAlchemy
     \item Designed PostgreSQL schema with PostGIS geometry column for sky-coordinate queries; 
     implemented data ingestion pipeline for VizieR catalogue exports with validation and null handling
-    \item Wrote 29 automated tests (pytest) covering endpoint functionality, input validation, 
+    \item Wrote 30+ automated tests (pytest) covering endpoint functionality, input validation, 
     pagination, and edge cases; structured codebase with modular ORM models, Pydantic schemas, and routed endpoints
     \item Links: \href{https://github.com/riteshbachhar/GalaxyCatelog}{GalaxyCatelog}
   \end{highlights}
@@ -333,15 +373,16 @@
           outperforming XGBoost by 41\% through graph-based neural network and feature engineering
     \item Optimized model for business constraints: 85\% recall at 80\% precision, balancing 
           false positive costs with detection coverage
-    \item Selected as top project by The Erd\H{o}s Institute \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{Deep Learning Bootcamp}} | 
+    \item Selected as top project by The Erd\H{o}s Institute; led multi-person team, coordinating task
+          allocation, milestones, and deliverables for successful project completion.
+          \href{https://www.erdosinstitute.org/certificates/fall-2025/deep-learning-boot-camp/ritesh-bachhar/c453e3ff-c2cb-470c-af89-549bedad8fc4}{\underline{Deep Learning Bootcamp}} | 
           Project link: \href{https://github.com/riteshbachhar/AML-detection-using-AI}{AML-detection-using-AI}
   \end{highlights}
 \end{onecolentry}
 
 
-
 % ---- Research Experience ----
-\section{Research Experience}
+\section{Professional Experience}
 
 \begin{onecolentry}
   \textbf{Graduate Research Assistant} \hfill \textit{September 2022 - Present}\\
@@ -377,7 +418,7 @@
 
 
 % ---------- Teaching Experience ----------
-\section{Teaching \& User Support}
+\section{Teaching \& Support}
 \begin{onecolentry}
     \begin{highlightsforbulletentries}
       \item \textbf{Teaching Assistant}, University of Rhode Island (2021--2023): Elementary Physics II, 
@@ -386,57 +427,6 @@
       \item \textbf{Undergraduate Research Mentorship:} Guided two undergraduate students in computational methods 
       and Python programming for scientific research
     \end{highlightsforbulletentries}
-\end{onecolentry}
-
-
-
-% ---- Technical Expertise ----
-\section{Technical Skills}
-
-\begin{onecolentry}
-  \textbf{Programming Languages:} Python (7+ years), SQL, Bash, LaTeX, C, MATLAB, Fortran
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Data Infrastructure \& APIs:} PostgreSQL, PostGIS, FastAPI, SQLAlchemy, REST API development, 
-  data ingestion pipelines, Pydantic
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Software Engineering:} Git/GitHub, CI/CD~(GitHub Actions), automated testing~(pytest), 
-  pip packaging, technical documentation, code review
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{High-Performance Computing:} MGHPCC Unity, Slurm orchestration, Parallel computing~(MPI, joblib), 
-  GPU acceleration~(PyTorch, CuPy)
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Machine Learning:} Gaussian Process Regression~(GPR), Graph Neural Networks~(GNNs), PyTorch, Scikit-learn, 
-  XGBoost, NLP~(Gensim, SpaCy)
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Surrogate Modeling \& UQ:} SVD-based dimensionality reduction, 
-  Empirical Interpolation Method~(EIM), Greedy algorithms, Probabilistic Surrogate Modeling, Bayesian Inference
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-  \textbf{Gravitational Wave Software:} \texttt{gwsurrogate}, \texttt{bilby}, \texttt{LALSuite}, 
-  \texttt{GWTools}
 \end{onecolentry}
 
 
