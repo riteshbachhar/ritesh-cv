@@ -287,13 +287,15 @@
 \section{Research Software \& Models}
 
 \begin{onecolentry}
-  \textbf{BHPTNRSur2dq1e3: Black Hole Perturbation Theory Surrogate Model} \hfill 
+  \textbf{BHPTNRSur: Black Hole Perturbation Theory Surrogate Model} \hfill 
   \textit{2022 - Present}
   
   \textit{Lead Developer | Python}
   \begin{highlights}
     \item Developed Black Hole Perturbation Theory (BHPT) surrogate model for gravitational 
     waveforms across 2D parameter space (mass ratio $q \in [3-1000]$, spin $\chi_1 \in [-0.6, 0.8]$)
+    
+    \item Extended the framework to inclined-orbit (precessing) systems, modeling shallow precession across $q \in [5, 100]$, $\chi_1 \in [0.1, 0.6]$, and orbital inclination $\cos I \in [0.92, 1.00]$ 
 
     \item Achieved $10^6\times$ speedup over numerical simulations with relative L2 error $<10^{-5}$, 
     enabling fast waveform evaluation of intermediate mass-ratio binaries
